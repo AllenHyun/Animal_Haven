@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import {RouterLink, RouterModule, RouterOutlet} from "@angular/router";
+import {Router, RouterLink, RouterModule, RouterOutlet} from "@angular/router";
 
 @Component({
   selector: 'app-header',
@@ -8,4 +8,7 @@ import {RouterLink, RouterModule, RouterOutlet} from "@angular/router";
   templateUrl: './header.html',
   styleUrl: './header.css',
 })
-export class Header {}
+export class Header {
+  constructor(public router: Router) {
+  }
+}
