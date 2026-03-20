@@ -1,0 +1,23 @@
+footer{
+     background-color:#67C2D2;
+     height:220px;
+}
+p{
+    color:#2B707C;
+    font-family: 'Josefin Sans', sans-serif;
+}
+#simbol{
+    font-size:xx-large;
+    font-family: 'Just Another Hand', cursive;
+}
+#simbol svg{
+    vertical-align:middle;
+    margin-bottom:2px;
+}
+#fragment-footer{
+    margin-left:25px;
+    padding:40px 0px;
+    display:flex;
+    flex-direction:column;
+    gap:15px;
+}
