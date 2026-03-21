@@ -21,6 +21,9 @@ input{
   border-color:transparent;
   margin-bottom:2%;
 }
+input:focus {
+  outline: none;
+}
 
 .button-searcher{
   background-color:transparent;
@@ -28,6 +31,8 @@ input{
   border-radius:100%;
   margin-left:2%;
   margin-right:2%;
+  align-items: center;
+  padding-top: 1%;
 }
 
 #sign-up-button{
@@ -48,8 +53,9 @@ input{
 }
 
 #searchanimals input {
-  margin-top:1%;
+  margin-top: auto;
 }
+
 .section-header{
   display:flex;
   justify-content:flex-start;
