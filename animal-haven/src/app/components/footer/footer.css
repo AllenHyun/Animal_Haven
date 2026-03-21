@@ -1,8 +1,8 @@
 footer{
-     background-color:#67C2D2;
-     height:220px;
-     margin-top: auto;
-
+    background-color:#67C2D2;
+    height:220px;
+    width: 100%;
+    margin-top: auto;
 }
 p{
     color:#2B707C;

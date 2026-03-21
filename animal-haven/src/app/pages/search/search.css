@@ -1,0 +1,24 @@
+* {
+    font-family: 'Josefin Sans', sans-serif;
+}
+
+#filter-container {
+    width: auto;
+    height: 10%;
+    margin: 1%;
+}
+
+#gallery {
+    width: auto;
+    height: auto;
+    display: flex;
+    margin-left: 40px;
+    margin-right: 40px;
+    flex-wrap: wrap;
+    flex-direction: row;
+}
+
+app-card {
+    flex-basis: 20%;
+    flex-grow: 20%;
+}
