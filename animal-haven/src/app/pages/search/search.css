@@ -3,9 +3,27 @@
 }
 
 #filter-container {
-    width: auto;
+    width: 100%;
     height: 10%;
-    margin: 1%;
+    margin: 0;
+    margin-left: auto;
+    padding-top: 30px;
+    display: flex;
+    justify-content: center;
+}
+
+.filter-pill {
+    border-radius: 25px;
+    padding: 8px 12px 8px 12px;
+    margin: 8px;
+    background-color: #DAEDF1;
+    color: #3393A4;
+    border: 2px solid #3393A4;
+}
+
+.filter-title {
+    background-color: #3393A4;
+    color: white;
 }
 
 #gallery {

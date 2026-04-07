@@ -10,4 +10,14 @@ import {Footer} from './components/footer/footer';
 })
 export class App {
   protected readonly title = signal('animal-haven');
+  
+  searchQuery: string = '';
+  
+  items: string[] = ['Todd', 'Lily', 'Luna', 'Rudolf', 'Cole'];
+
+  get filteredItems() {
+    return this.items.filter(item => 
+      item.toLowerCase().includes(this.searchQuery.toLowerCase())
+    );
+  }
 }
