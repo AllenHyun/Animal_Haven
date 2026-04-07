@@ -1,4 +1,4 @@
-<main>
+<div>
     <section id="filter-container">
         <section id="filters">
 
@@ -6,9 +6,15 @@
     </section>
     <section id="gallery">
         @for (animal of animalTable; track animal.id) {
-            <app-card [data]="animal"></app-card>
+            <app-card [data]="animal" (viewDetails)="selectedPet = $event"></app-card>
         } @empty {
             <h1>No items found in the database</h1>
         }
-    </section>
-</main>
+    </section>    
+</div>
+
+@if (selectedPet) {
+    <div id="details-overlay" (click)="selectedPet = null">
+        <pet-profile [pet]="selectedPet" (close)="selectedPet = null"></pet-profile>
+    </div>
+}

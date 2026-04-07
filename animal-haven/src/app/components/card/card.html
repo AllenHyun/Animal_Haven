@@ -10,7 +10,7 @@
             {{ data.animal }}
         </div>
         <div id="card-button">
-            <button id="details-button">More details</button>
+            <button id="details-button" (click)="viewDetails.emit(data)">More details</button>
         </div>
     </div>
 </div>

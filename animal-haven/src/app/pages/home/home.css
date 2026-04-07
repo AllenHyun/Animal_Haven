@@ -41,6 +41,7 @@ u{
     text-decoration-thickness: 5px;
 }
 #adopt-button{
+    cursor: pointer;
     background-color:white;
     color:#67C2D2;
     border-radius:25px;

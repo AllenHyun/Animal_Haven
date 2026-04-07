@@ -1,5 +1,6 @@
 import { Component } from "@angular/core";
 import { Card } from "../../components/card/card";
+import { PetProfile } from "../../components/profile/profile";
 
 interface AnimalEntry {
     id: number;
@@ -9,7 +10,7 @@ interface AnimalEntry {
 }
 @Component({
     selector: 'app-search',
-    imports: [Card],
+    imports: [Card, PetProfile],
     templateUrl: './search.html',
     styleUrl: './search.css',
 })
@@ -22,5 +23,7 @@ export class Search {
         { id: 4, image: "images/cat2.jpg", name: "Rudolf", animal: "Cat"},
         { id: 5, image: "images/parrot.jpg", name: "Cole", animal: "Parrot"},
     ]
+
+    selectedPet: any = null; // Stores the pet to show in the popup
 }
 

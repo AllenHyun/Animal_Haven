@@ -25,6 +25,9 @@ input:focus {
   outline: none;
 }
 
+#logo-text {
+  cursor: pointer;
+}
 .button-searcher{
   background-color:transparent;
   border-color:transparent;
