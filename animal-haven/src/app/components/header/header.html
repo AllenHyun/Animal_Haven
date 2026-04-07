@@ -3,7 +3,7 @@
 
   <section class="section-header">
     <h1 routerLink="" id="logo-text">ANIMAL HAVEN</h1>
-    @if (router.url !== '/sign-up') {
+    @if (router.url !== '/sign-up' && router.url !== '/login') {
     <form method="GET" id="searchanimals">
       <button  class="button-searcher" type="submit"><span class="material-symbols-outlined">menu</span></button>
       <input type="text" name="search_animals" placeholder="Search for a new friend" required/>
@@ -13,7 +13,7 @@
 
   </section>
 
-  @if (router.url !== '/sign-up') {
+  @if (router.url !== '/sign-up' && router.url !== '/login') {
     <section class="section-header">
     <button routerLink="" class="button-header">Home</button>
     <button routerLink="/search" class="button-header">Adopt/foster</button>
