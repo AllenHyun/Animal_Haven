@@ -1,58 +1,41 @@
 <div class="page-container">
-
   <div class="login-card">
-
     <div class="card-left">
+      <h1>WELCOME BACK</h1>
 
-      <h1> WELCOME BACK </h1>
-
-      <p class="login-text"> <span>Sign up</span> if you don't have an account </p>
-
-      <div class="input-login">
-
-        <div class="input-group">
-
-          <label>Email</label>
-          <input type="text" placeholder="example_email@gmail.com">
-
-        </div>
-
-        <div class="input-group">
-
-          <label>Password</label>
-          <input type="password" placeholder="*************">
-
-        </div>
-
-        <div class="final-options">
-
-          <div class="checkbox-group">
-
-            <label for="notifications"> Remember me</label>
-            <input type="checkbox" id="notifications">
-
+      <p class="login-text">
+        <span routerLink="/sign-up">Sign up</span> if you don't have an account
+      </p>
+      <form [formGroup]="loginForm" (submit)="login()">
+        <div class="input-login">
+          <div class="input-group">
+            <label>Email</label>
+            <input formControlName="email" type="email" placeholder="example_email@gmail.com" />
           </div>
 
-          <p class="forget-text">Forget password?</p>
+          <div class="input-group">
+            <label>Password</label>
+            <input formControlName="password" type="password" placeholder="*************" />
+          </div>
 
+          <div class="final-options">
+            <div class="checkbox-group">
+              <label for="notifications"> Remember me</label>
+              <input type="checkbox" id="notifications" />
+            </div>
+
+            <p class="forget-text">Forget password?</p>
+          </div>
         </div>
 
-      </div>
-
-      <button class="sign-in-button">SIGN IN</button>
-
+        <button type="submit" class="sign-in-button">SIGN IN</button>
+      </form>
     </div>
 
     <div class="card-right">
-
       <div class="circle-frame">
-
-        <img [src]="'images/cat_login.png'" alt="Animal Haven">
-
+        <img [src]="'images/cat_login.png'" alt="Animal Haven" />
       </div>
-
     </div>
-
   </div>
-
 </div>

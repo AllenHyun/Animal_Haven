@@ -1,74 +1,55 @@
 <div class="page-container">
-
   <div class="register-card">
-
     <div class="card-left">
-
       <div class="circle-frame">
-
-        <img [src]="'images/dog_register.png'" alt="Animal Haven">      </div>
-
+        <img [src]="'images/dog_register.png'" alt="Animal Haven" />
+      </div>
     </div>
 
     <div class="card-right">
+      <h1>CREATE YOUR ACCOUNT</h1>
 
-      <h1> CREATE YOUR ACCOUNT </h1>
+      <p class="login-text">Already have an <span routerLink="/login">account?</span></p>
+      <form [formGroup]="signUpForm" (submit)="signup()">
+        <div class="input-group">
+          <label>First name</label>
+          <input formControlName="firstName" type="text" placeholder="First name" />
+        </div>
 
-      <p class="login-text"> Already have an <span routerLink="/login">account?</span></p>
+        <div class="input-group">
+          <label>Last name</label>
+          <input formControlName="lastName" type="text" placeholder="Last name" />
+        </div>
 
-      <div class="input-group">
+        <div class="input-group">
+          <label>Email</label>
+          <input formControlName="email" type="email" placeholder="example_email@gmail.com" />
+        </div>
 
-        <label>First name</label>
-        <input type="text" placeholder="First name">
+        <div class="input-group">
+          <label>Password</label>
+          <input formControlName="password" type="password" placeholder="*************" />
+        </div>
 
-      </div>
+        <div class="input-group">
+          <label>Verify password</label>
+          <input type="password" placeholder="*************" />
+        </div>
 
-      <div class="input-group">
+        <div class="input-group">
+          <label>Postcode</label>
+          <input formControlName="postcode" type="text" placeholder="12345" />
+        </div>
 
-        <label>Last name</label>
-        <input type="text" placeholder="Last name">
+        <div class="checkbox-group">
+          <input type="checkbox" id="notifications" />
+          <label for="notifications">
+            I would like to receive notifications of new animals arrivals.
+          </label>
+        </div>
 
-      </div>
-
-      <div class="input-group">
-
-        <label>Email</label>
-        <input type="text" placeholder="example_email@gmail.com">
-
-      </div>
-
-      <div class="input-group">
-
-        <label>Password</label>
-        <input type="password" placeholder="*************">
-
-      </div>
-
-      <div class="input-group">
-
-        <label>Verify password</label>
-        <input type="password" placeholder="*************">
-
-      </div>
-
-      <div class="input-group">
-
-        <label>Postcode</label>
-        <input type="text" placeholder="12345">
-
-      </div>
-
-      <div class="checkbox-group">
-
-        <input type="checkbox" id="notifications">
-        <label for="notifications"> I would like to receive notifications of new animals arrivals.</label>
-
-      </div>
-
-      <button class="create-button">CREATE</button>
-
+        <button type="submit" class="create-button">CREATE</button>
+      </form>
     </div>
-
   </div>
-
 </div>
