@@ -1,0 +1,78 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Get a free hosted Postgres database in seconds: `npx create-db`
+
+generator client {
+  provider = "prisma-client"
+  output   = "../src/generated/prisma"
+}
+
+datasource db {
+  provider = "mysql"
+}
+
+model User {
+  id           Int           @id @default(autoincrement())
+  firstName    String
+  lastName     String
+  email        String        @unique
+  username     String?
+  password     String
+  postcode     Int
+  bookings     Booking[]
+  applications Application[]
+  createdAt    DateTime      @default(now())
+}
+
+model Booking {
+  id        Int      @id @default(autoincrement())
+  date      DateTime @default(now())
+  location  Shelter  @relation(fields: [shelterId], references: [id])
+  user      User?    @relation(fields: [userId], references: [id])
+  userId    Int?
+  shelterId Int
+}
+
+enum ApplicationType {
+  FOSTER
+  ADOPTION
+}
+
+enum ApplicationStatus {
+  DRAFT
+  STARTED
+  PROCESSING_DOCUMENTATION
+  IN_PROGRESS
+  IN_REVISION
+  APPROVED
+  REJECTED
+}
+
+model Application {
+  id     Int               @id @default(autoincrement())
+  type   ApplicationType   @default(ADOPTION)
+  status ApplicationStatus @default(STARTED)
+  user   User?             @relation(fields: [userId], references: [id])
+  userId Int?
+}
+
+model Shelter {
+  id       Int       @id @default(autoincrement())
+  name     String
+  address  String
+  postcode Int
+  pets     Pet[]
+  bookings Booking[]
+}
+
+model Pet {
+  id          Int      @id @default(autoincrement())
+  name        String
+  profileImg  String
+  animalType  String
+  breed       String?
+  description String
+  shelter     Shelter? @relation(fields: [shelterId], references: [id])
+  shelterId   Int?
+}
