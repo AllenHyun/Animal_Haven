@@ -1,6 +1,6 @@
 import {
   PlatformLocation
-} from "./chunk-YTA4QQ7A.js";
+} from "./chunk-2D45FV4R.js";
 import {
   ApplicationRef,
   Attribute,
@@ -4486,4 +4486,4 @@ export {
   PLATFORM_BROWSER_ID,
   ViewportScroller
 };
-//# sourceMappingURL=chunk-URVEOYBU.js.map
+//# sourceMappingURL=chunk-WAK2LTWA.js.map

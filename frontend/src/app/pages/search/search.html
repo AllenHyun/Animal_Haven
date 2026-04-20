@@ -1,9 +1,50 @@
 <div>
     <section id="filter-container">
         <div class="filter-pill filter-title">Filter by</div>
-        <div class="filter-pill">Animal</div>
-        <div class="filter-pill">Breed</div>
-        <div class="filter-pill">Age</div>
+        <select name="animal" class="filter-pill">
+            <option value="">Animal</option>
+            <option value="Cat">Cat</option>
+            <option value="Dog">Dog</option>
+        </select>
+        <select name="breed" class="filter-pill">
+            <option value="">Breed</option>
+            <option value="Abyssinian">Abyssinian</option>
+            <option value="Beagle">Beagle</option>
+            <option value="Bengal">Bengal</option>
+            <option value="Boxer">Boxer</option>
+            <option value="Bulldog">Bulldog</option>
+            <option value="Dachshund">Dachshund</option>
+            <option value="Doberman">Doberman</option>
+            <option value="Exotic Shorthair">Exotic Shorthair</option>
+            <option value="German Shepherd">German Shepherd</option>
+            <option value="Golden Retriever">Golden Retriever</option>
+            <option value="Himalayan">Himalayan</option>
+            <option value="Husky">Husky</option>
+            <option value="Labrador">Labrador</option>
+            <option value="Maine Coon">Maine Coon</option>
+            <option value="Persian">Persian</option>
+            <option value="Pomeranian">Pomeranian</option>
+            <option value="Ragdoll">Ragdoll</option>
+            <option value="Rottweiler">Rottweiler</option>
+            <option value="Russian Blue">Russian Blue</option>
+            <option value="Shiba Inu">Shiba Inu</option>
+            <option value="Siamese">Siamese</option>
+            <option value="Siberian">Siberian</option>
+            <option value="Sphynx">Sphynx</option>
+            <option value="Tabby">Tabby</option>
+            <option value="Tuxedo">Tuxedo</option>
+        </select>
+        <select name="age" class="filter-pill">
+            <option value="">Age</option>
+                <option value="1">1 years old</option>
+                <option value="2">2 years old</option>
+                <option value="3">3 years old</option>
+                <option value="4">4 years old</option>
+                <option value="5">5 years old</option>
+                <option value="6">6 years old</option>
+                <option value="7">7 years old</option>
+                <option value="8">8 years old</option>
+        </select>
     </section>
     <section id="gallery">
         @for (animal of animalTable; track animal.id) {
