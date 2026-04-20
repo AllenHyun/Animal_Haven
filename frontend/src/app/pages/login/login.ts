@@ -1,5 +1,5 @@
 import { Component, inject } from '@angular/core';
-import { RouterLink } from '@angular/router';
+import { RouterLink, Router } from '@angular/router';
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { AuthService } from '../../services/auth.service';
 
@@ -12,6 +12,7 @@ import { AuthService } from '../../services/auth.service';
 export class Login {
   private fb = inject(FormBuilder);
   private authService = inject(AuthService);
+  private router = inject(Router);
 
   loginForm: FormGroup = this.fb.group({
     email: ['', [Validators.required, Validators.email]],
@@ -31,6 +32,7 @@ export class Login {
       next: (response) => {
         console.log('Logged in!');
         this.isLoading = false;
+        this.router.navigate(['/']);
       },
 
       error: (err) => {

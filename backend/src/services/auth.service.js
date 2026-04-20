@@ -9,14 +9,16 @@ class AuthError extends Error {
   }
 }
 
-const register = async (email, password, username) => {
+const register = async (firstName, lastName, email, password, postcode) => {
   const hashedPassword = await bcrypt.hash(password, 10);
 
   return await prisma.user.create({
     data: {
+      firstName,
+      lastName,
       email,
-      username,
       password: hashedPassword,
+      postcode
     },
   });
 };

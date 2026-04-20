@@ -1,6 +1,6 @@
 import { Component, inject } from '@angular/core';
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
-import { RouterLink } from '@angular/router';
+import { RouterLink, Router } from '@angular/router';
 import { AuthService } from '../../services/auth.service';
 
 @Component({
@@ -13,35 +13,37 @@ import { AuthService } from '../../services/auth.service';
 export class Register {
   private fb = inject(FormBuilder);
   private authService = inject(AuthService);
+  private router = inject(Router);
 
   signUpForm: FormGroup = this.fb.group({
     firstName: ['', [Validators.required]],
     lastName: ['', [Validators.required]],
     email: ['', [Validators.required, Validators.email]],
     password: ['', [Validators.required]],
-    postcode: ['', [Validators.required]]
-  })
+    postcode: ['', [Validators.required]],
+  });
 
   isLoading = false;
   errorMessage = '';
 
   signup() {
-      if(this.signUpForm.invalid) return;
+    if (this.signUpForm.invalid) return;
 
-      this.isLoading = true;
-      this.errorMessage = '';
+    this.isLoading = true;
+    this.errorMessage = '';
 
-      this.authService.register(this.signUpForm.value).subscribe({
-          next: (response) => {
-              console.log("Backend says:", response);
-              this.isLoading = false;
-          },
+    this.authService.register(this.signUpForm.value).subscribe({
+      next: (response) => {
+        console.log('Backend says:', response);
+        this.isLoading = false;
+        this.router.navigate(['/login']);
+      },
 
-          error: (err) => {
-              console.error('Registration failed:', err)
-              this.isLoading = false;
-              this.errorMessage = err.error?.error || 'An unexpected error occurred.';
-          }
-      })
-    }
+      error: (err) => {
+        console.error('Registration failed:', err);
+        this.isLoading = false;
+        this.errorMessage = err.error?.error || 'An unexpected error occurred.';
+      },
+    });
+  }
 }
