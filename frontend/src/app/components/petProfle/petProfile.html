@@ -1,20 +1,20 @@
-
 <div id="main-container">
-    <section id="img-container">
-        <img [src]="pet.image" alt="">
-    </section>
-    <section id="data-container">
-        <h2>{{ pet.name }} </h2>
-        <p>{{ pet.animal }}</p>
-        <h3>Important facts</h3>
-        <ul>
-            <li>Lorem ipsum dolor sit amet consectetur, adipisicing elit. </li>
-            <li>Lorem ipsum dolor sit amet consectetur, adipisicing elit. </li>
-            <li>Lorem ipsum dolor sit amet consectetur, adipisicing elit. </li>
-            <li>Lorem ipsum dolor sit amet consectetur, adipisicing elit. </li>
-        </ul>
-        <h3>General description</h3>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Culpa laudantium a voluptas autem ex nulla temporibus dolores maiores quos unde, aut sint soluta ad iure officia esse tempore sit totam! Lorem ipsum dolor sit amet consectetur adipisicing elit. In, amet? Nisi reprehenderit voluptatem illo maxime beatae adipisci obcaecati quaerat alias praesentium, quod, recusandae ducimus tempora laborum officiis a impedit esse!</p>
-    </section>
+  <section id="img-container">
+    <img [src]="pet.profileImg" alt="" />
+  </section>
+  <section id="data-container">
+    <h2>{{ pet.name }}</h2>
+    <p>{{ pet.animalType }}</p>
+    <h3>Important facts</h3>
+    <ul>
+      <li>Lorem ipsum dolor sit amet consectetur, adipisicing elit.</li>
+      <li>Lorem ipsum dolor sit amet consectetur, adipisicing elit.</li>
+      <li>Lorem ipsum dolor sit amet consectetur, adipisicing elit.</li>
+      <li>Lorem ipsum dolor sit amet consectetur, adipisicing elit.</li>
+    </ul>
+    <h3>General description</h3>
+    <p>
+      {{ pet.description }}
+    </p>
+  </section>
 </div>
-    

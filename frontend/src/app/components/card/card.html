@@ -1,16 +1,16 @@
 <div id="card-container">
-    <div id="card-content">
-        <div id="card-img">
-            <img [src]="data.image" alt="">
-        </div>
-        <div id="card-name">
-            {{ data.name }}
-        </div>
-        <div id="card-animal">
-            {{ data.animal }}
-        </div>
-        <div id="card-button">
-            <button id="details-button" (click)="viewDetails.emit(data)">More details</button>
-        </div>
+  <div id="card-content">
+    <div id="card-img">
+      <img [src]="data.profileImg" alt="" />
     </div>
+    <div id="card-name">
+      {{ data.name }}
+    </div>
+    <div id="card-animal">
+      {{ data.animalType }}
+    </div>
+    <div id="card-button">
+      <button id="details-button" (click)="viewDetails.emit(data)">More details</button>
+    </div>
+  </div>
 </div>
