@@ -22,13 +22,19 @@ export class AuthService {
 
   login(credentials: any): Observable<any> {
     return this.http.post<any>(`${this.apiUrl}/login`, credentials).pipe(
-      tap(res => {
+      tap((res) => {
         localStorage.setItem('token', res.token);
-      })
+        this.loggedIn.next(true);
+      }),
     );
   }
 
   getToken() {
     return localStorage.getItem('token');
+  }
+
+  logout() {
+    localStorage.removeItem('token');
+    this.loggedIn.next(false);
   }
 }

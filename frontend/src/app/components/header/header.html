@@ -1,26 +1,38 @@
-
-<header >
-
+<header>
   <section class="section-header">
     <h1 routerLink="" id="logo-text">ANIMAL HAVEN</h1>
     @if (router.url !== '/sign-up' && router.url !== '/login') {
-    <form method="GET" id="searchanimals">
-      <button  class="button-searcher" type="submit"><span class="material-symbols-outlined">menu</span></button>
-      <input type="text" name="search_animals" placeholder="Search for a new friend" required/>
-      <button  class="button-searcher" type="submit"><span class="material-symbols-outlined">search</span></button>
-    </form>
+      <form method="GET" id="searchanimals">
+        <button class="button-searcher" type="submit">
+          <span class="material-symbols-outlined">menu</span>
+        </button>
+        <input type="text" name="search_animals" placeholder="Search for a new friend" required />
+        <button class="button-searcher" type="submit">
+          <span class="material-symbols-outlined">search</span>
+        </button>
+      </form>
     }
-
   </section>
 
   @if (router.url !== '/sign-up' && router.url !== '/login') {
     <section class="section-header">
-    <button routerLink="" class="button-header">Home</button>
-    <button routerLink="/search" class="button-header">Adopt/foster</button>
-    <button class="button-header">Contact</button>
-    <button routerLink="/sign-up" id="sign-up-button" class="button-header">Sign Up</button>
-  </section>
+      <button routerLink="" class="button-header">Home</button>
+      <button routerLink="/search" class="button-header">Adopt/foster</button>
+      <button class="button-header">Contact</button>
+
+      @if (isLoggedIn$ | async) {
+        <div class="profile-menu-container">
+          <img
+            src="images/profile-icon.png"
+            class="profile-icon"
+            alt="Profile Icon"
+            routerLink="/profile"
+          />
+          <button class="logout-button" (click)="onLogout()">Log Out</button>
+        </div>
+      } @else {
+        <button routerLink="/sign-up" id="sign-up-button" class="button-header">Sign Up</button>
+      }
+    </section>
   }
-
 </header>
-
