@@ -6,9 +6,7 @@
     <div id="card-name">
       {{ data.name }}
     </div>
-    <div id="card-animal">
-      {{ data.animalType }}
-    </div>
+    <div id="card-animal">{{ data.animalType }} | {{ data.breed }}</div>
     <div id="card-button">
       <button id="details-button" (click)="viewDetails.emit(data)">More details</button>
     </div>

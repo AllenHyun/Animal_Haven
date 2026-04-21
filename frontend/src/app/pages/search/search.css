@@ -59,8 +59,7 @@ h1 {
     width: auto;
     height: auto;
     display: flex;
-    margin-left: 40px;
-    margin-right: 40px;
+    margin: 20px 40px;
     flex-wrap: wrap;
     flex-direction: row;
     max-height: 80vh;
@@ -97,7 +96,7 @@ pet-profile {
     width: 20%;
     height: 20%;
     margin: auto;
-    margin-top: 10%;
+    margin-top: 40px;
     align-self: center;
     justify-self: center;
 }
