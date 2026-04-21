@@ -15,6 +15,39 @@ export class Search implements OnInit {
   pets$!: Observable<any[]>;
   loading = true;
 
+  // Provisional hasta que se obtengan de la BD en forma de Enum
+  animals: string[] = ['Cat', 'Dog'];
+
+  breeds: string[] = [
+    'Abyssinian',
+    'Beagle',
+    'Bengal',
+    'Boxer',
+    'Bulldog',
+    'Dachshund',
+    'Doberman',
+    'Exotic Shorthair',
+    'German Shepherd',
+    'Golden Retriever',
+    'Himalayan',
+    'Husky',
+    'Labrador',
+    'Maine Coon',
+    'Persian',
+    'Pomeranian',
+    'Ragdoll',
+    'Rottweiler',
+    'Russian Blue',
+    'Shiba Inu',
+    'Siamese',
+    'Siberian',
+    'Sphynx',
+    'Tabby',
+    'Tuxedo',
+  ];
+
+  ages: number[] = [1, 2, 3, 4, 5, 6, 7, 8];
+
   constructor(private petService: PetService) {}
 
   ngOnInit(): void {

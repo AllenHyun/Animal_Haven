@@ -2,6 +2,10 @@
     font-family: 'Josefin Sans', sans-serif;
 }
 
+select {
+    width: 8%;
+}
+
 h1 {
     text-align: center;
     margin: 5%;
@@ -20,15 +24,33 @@ h1 {
 }
 
 .filter-pill {
+    appearance: none;
+    -webkit-appearance: none;
+    border-radius: 25px;
+    padding: 8px 36px 8px 12px;
+    margin: 8px;
+    background-color: #DAEDF1;
+    color: #3393A4;
+    border: 2px solid #3393A4;
+    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="%23333333" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>');
+    background-repeat: no-repeat;
+    background-position: right 12px center;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.filter-pill:focus {
+    outline: none;
+    border-color: #3393A4;
+    box-shadow: 0 0 0 3px rgba(11, 146, 135, 0.25);
+}
+
+.filter-title {
     border-radius: 25px;
     padding: 8px 12px 8px 12px;
     margin: 8px;
     background-color: #DAEDF1;
     color: #3393A4;
     border: 2px solid #3393A4;
-}
-
-.filter-title {
     background-color: #3393A4;
     color: white;
 }
