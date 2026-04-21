@@ -1,0 +1,252 @@
+[
+  {
+    "id": 1,
+    "name": "Shadow 1",
+    "breed": "Bengal",
+    "age": 3,
+    "animalType": "Cat",
+    "gender": "Male",
+    "profileImg": "https://loremflickr.com/400/400/cat?lock=1",
+    "description": "A striking Bengal with a playful personality and beautiful rosette patterns. He loves to climb and explore."
+  },
+  {
+    "id": 2,
+    "name": "Luna",
+    "breed": "Golden Retriever",
+    "age": 4,
+    "animalType": "Dog",
+    "gender": "Female",
+    "profileImg": "https://loremflickr.com/400/400/dog?lock=2",
+    "description": "A sweet and loyal Golden who loves long walks, playing fetch, and making new friends wherever she goes."
+  },
+  {
+    "id": 3,
+    "name": "Milo",
+    "breed": "Tabby",
+    "age": 2,
+    "animalType": "Cat",
+    "gender": "Male",
+    "profileImg": "https://loremflickr.com/400/400/kitten?lock=3003",
+    "description": "An energetic young tabby who enjoys chasing laser pointers and batting at feather wands."
+  },
+  {
+    "id": 4,
+    "name": "Bella",
+    "breed": "Beagle",
+    "age": 5,
+    "animalType": "Dog",
+    "gender": "Female",
+    "profileImg": "https://loremflickr.com/400/400/puppy?lock=3004",
+    "description": "A curious beagle with a great nose and a friendly disposition. Always ready for a scent-tracking adventure."
+  },
+  {
+    "id": 5,
+    "name": "Oliver",
+    "breed": "Maine Coon",
+    "age": 6,
+    "animalType": "Cat",
+    "gender": "Male",
+    "profileImg": "https://loremflickr.com/400/400/kitten?lock=3005",
+    "description": "A gentle giant with a fluffy coat and a calm demeanor. He enjoys lounging by the window and soft pets."
+  },
+  {
+    "id": 6,
+    "name": "Daisy",
+    "breed": "Pomeranian",
+    "age": 1,
+    "animalType": "Dog",
+    "gender": "Female",
+    "profileImg": "https://loremflickr.com/400/400/dog?lock=6",
+    "description": "A tiny fluffball full of energy and love. She might be small, but she has a big, confident personality."
+  },
+  {
+    "id": 7,
+    "name": "Simba",
+    "breed": "Siamese",
+    "age": 3,
+    "animalType": "Cat",
+    "gender": "Male",
+    "profileImg": "https://loremflickr.com/400/400/cat?lock=7",
+    "description": "A vocal and affectionate Siamese who loves attention and will happily chat with you all day."
+  },
+  {
+    "id": 8,
+    "name": "Charlie",
+    "breed": "Bulldog",
+    "age": 4,
+    "animalType": "Dog",
+    "gender": "Male",
+    "profileImg": "https://loremflickr.com/400/400/dog?lock=8",
+    "description": "A sturdy bulldog with a heart of gold. His favorite activities include short walks and long afternoon naps."
+  },
+  {
+    "id": 9,
+    "name": "Cleo",
+    "breed": "Persian",
+    "age": 2,
+    "animalType": "Cat",
+    "gender": "Female",
+    "profileImg": "https://loremflickr.com/400/400/cat?lock=9",
+    "description": "A quiet and elegant Persian who enjoys lounging in the sun. Requires regular brushing to keep her coat glamorous."
+  },
+  {
+    "id": 10,
+    "name": "Max",
+    "breed": "German Shepherd",
+    "age": 5,
+    "animalType": "Dog",
+    "gender": "Male",
+    "profileImg": "https://loremflickr.com/400/400/dog?lock=10",
+    "description": "A smart, loyal, and protective shepherd. Highly trainable and looking for an active family."
+  },
+  {
+    "id": 11,
+    "name": "Misty",
+    "breed": "Russian Blue",
+    "age": 3,
+    "animalType": "Cat",
+    "gender": "Female",
+    "profileImg": "https://loremflickr.com/400/400/cat?lock=11",
+    "description": "A shy but incredibly loving Russian Blue with stunning silver-blue fur. Warms up quickly to gentle people."
+  },
+  {
+    "id": 12,
+    "name": "Rocky",
+    "breed": "Boxer",
+    "age": 4,
+    "animalType": "Dog",
+    "gender": "Male",
+    "profileImg": "https://loremflickr.com/400/400/dog?lock=12",
+    "description": "A goofy and energetic boxer who still thinks he's a lap dog. Loves to play and bounce around in the yard."
+  },
+  {
+    "id": 13,
+    "name": "Nala",
+    "breed": "Abyssinian",
+    "age": 2,
+    "animalType": "Cat",
+    "gender": "Female",
+    "profileImg": "https://loremflickr.com/400/400/kitten?lock=3013",
+    "description": "An active and curious cat who loves climbing to the highest point in the room. Very intelligent and playful."
+  },
+  {
+    "id": 14,
+    "name": "Cooper",
+    "breed": "Labrador",
+    "age": 6,
+    "animalType": "Dog",
+    "gender": "Male",
+    "profileImg": "https://loremflickr.com/400/400/puppy?lock=3014",
+    "description": "A classic, loyal Lab who is fantastic with families and kids. He loves swimming and retrieving toys."
+  },
+  {
+    "id": 15,
+    "name": "Coco",
+    "breed": "Ragdoll",
+    "age": 1,
+    "animalType": "Cat",
+    "gender": "Female",
+    "profileImg": "https://loremflickr.com/400/400/cat?lock=15",
+    "description": "A sweet, floppy kitten who loves to be held. She has striking blue eyes and a very docile personality."
+  },
+  {
+    "id": 16,
+    "name": "Bruno",
+    "breed": "Rottweiler",
+    "age": 5,
+    "animalType": "Dog",
+    "gender": "Male",
+    "profileImg": "https://loremflickr.com/400/400/dog?lock=16",
+    "description": "A strong but gentle giant with a calm demeanor. He is deeply devoted to his people and loves a good belly rub."
+  },
+  {
+    "id": 17,
+    "name": "Zelda",
+    "breed": "Sphynx",
+    "age": 4,
+    "animalType": "Cat",
+    "gender": "Female",
+    "profileImg": "https://loremflickr.com/400/400/cat?lock=17",
+    "description": "A hairless beauty who loves wearing warm sweaters and cuddling under the blankets with her humans."
+  },
+  {
+    "id": 18,
+    "name": "Toby",
+    "breed": "Dachshund",
+    "age": 3,
+    "animalType": "Dog",
+    "gender": "Male",
+    "profileImg": "https://loremflickr.com/400/400/dog,pet?lock=88818",
+    "description": "A lively little wiener dog with a big bark and an even bigger heart. Enjoys burrowing in blankets."
+  },
+  {
+    "id": 19,
+    "name": "Sassy",
+    "breed": "Himalayan",
+    "age": 7,
+    "animalType": "Cat",
+    "gender": "Female",
+    "profileImg": "https://loremflickr.com/400/400/kitten?lock=3019",
+    "description": "A mature, glamorous cat who prefers a quiet home. She appreciates gentle brushing and relaxing on soft cushions."
+  },
+  {
+    "id": 20,
+    "name": "Duke",
+    "breed": "Doberman",
+    "age": 5,
+    "animalType": "Dog",
+    "gender": "Male",
+    "profileImg": "https://loremflickr.com/400/400/dog?lock=20",
+    "description": "An athletic and alert Doberman who forms incredibly strong bonds. Extremely smart and eager to please."
+  },
+  {
+    "id": 21,
+    "name": "Felix",
+    "breed": "Tuxedo",
+    "age": 2,
+    "animalType": "Cat",
+    "gender": "Male",
+    "profileImg": "https://loremflickr.com/400/400/cat?lock=21",
+    "description": "A dapper tuxedo cat who is always dressed to impress. He is very social and loves greeting guests."
+  },
+  {
+    "id": 22,
+    "name": "Maya",
+    "breed": "Husky",
+    "age": 4,
+    "animalType": "Dog",
+    "gender": "Female",
+    "profileImg": "https://loremflickr.com/400/400/puppy?lock=3022",
+    "description": "A vocal and beautiful husky who loves the outdoors. She needs an active owner ready for lots of hiking and running."
+  },
+  {
+    "id": 23,
+    "name": "Garfield",
+    "breed": "Exotic Shorthair",
+    "age": 8,
+    "animalType": "Cat",
+    "gender": "Male",
+    "profileImg": "https://loremflickr.com/400/400/cat?lock=23",
+    "description": "A laid-back older gent who mostly wants to nap, eat treats, and keep your lap warm while you watch TV."
+  },
+  {
+    "id": 24,
+    "name": "Kona",
+    "breed": "Shiba Inu",
+    "age": 3,
+    "animalType": "Dog",
+    "gender": "Female",
+    "profileImg": "https://loremflickr.com/400/400/dog?lock=24",
+    "description": "An independent and spirited Shiba with a fox-like appearance. Loyal but enjoys having her own space."
+  },
+  {
+    "id": 25,
+    "name": "Leo",
+    "breed": "Siberian",
+    "age": 5,
+    "animalType": "Cat",
+    "gender": "Male",
+    "profileImg": "https://loremflickr.com/400/400/cat?lock=25",
+    "description": "A thick-coated, highly affectionate cat who actually enjoys playing in water. Great with families and other pets."
+  }
+]

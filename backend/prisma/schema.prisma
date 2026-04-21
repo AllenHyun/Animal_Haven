@@ -65,13 +65,20 @@ model Shelter {
   bookings Booking[]
 }
 
+enum Gender {
+  Male
+  Female
+}
+
 model Pet {
   id          Int      @id @default(autoincrement())
   name        String
-  profileImg  String
-  animalType  String
   breed       String?
-  description String
+  age         Int
+  gender      Gender
+  animalType  String
+  profileImg  String
+  description String   @default("Description")
   shelter     Shelter? @relation(fields: [shelterId], references: [id])
   shelterId   Int?
 }
