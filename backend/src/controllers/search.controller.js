@@ -28,11 +28,15 @@ const basicSearch = async (req, res) => {
 
 const filter = async (req, res) => {
   try {
-    const tags = req.query.tags ? req.query.tags.split(",") : [];
+    const filters = {};
+    if (req.query.animalType) filters.animalType = req.query.animalType;
+    if (req.query.breed) filters.breed = req.query.breed;
+    if (req.query.age) filters.age = parseInt(req.query.age); // Prisma strict typing!
 
-    const results = await searchService.filter(tags);
+    const results = await searchService.filter(filters);
     res.status(200).json(results);
   } catch (error) {
+    console.log("Error:", error.message);
     res.status(500).json({ error: "Filter search failed" });
   }
 };

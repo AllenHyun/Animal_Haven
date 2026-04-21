@@ -3,6 +3,7 @@ var cors = require("cors");
 var authRoutes = require("./routes/auth.routes");
 var searchRoutes = require("./routes/search.routes");
 var petRoutes = require("./routes/pets.routes");
+const prisma = require("../src/config/prisma");
 
 var app = express();
 const PORT = 3000;
@@ -31,6 +32,20 @@ app.use(function (err, req, res, next) {
     message: err.message,
     error: req.app.get("env") === "development" ? err : {},
   });
+});
+
+process.on("SIGINT", async () => {
+  console.log("Shutting down gracefully...");
+  await prisma.$disconnect();
+  console.log("Prisma disconnected.");
+  process.exit(0);
+});
+
+process.on("SIGTERM", async () => {
+  console.log("Server restarting...");
+  await prisma.$disconnect();
+  console.log("Prisma disconnected.");
+  process.exit(0);
 });
 
 module.exports = app;

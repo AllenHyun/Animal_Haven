@@ -4,10 +4,11 @@ import { PetProfile } from '../../components/petProfle/petProfile';
 import { PetService } from '../../services/pet.service';
 import { Observable } from 'rxjs';
 import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-search',
-  imports: [Card, PetProfile, CommonModule],
+  imports: [Card, PetProfile, CommonModule, FormsModule],
   templateUrl: './search.html',
   styleUrl: './search.css',
 })
@@ -48,10 +49,26 @@ export class Search implements OnInit {
 
   ages: number[] = [1, 2, 3, 4, 5, 6, 7, 8];
 
+  selectedAnimal: string = '';
+  selectedBreed: string = '';
+  selectedAge: string = '';
+
   constructor(private petService: PetService) {}
 
   ngOnInit(): void {
     this.pets$ = this.petService.getPets();
+  }
+
+  onSearchChange(): void {
+    console.log('Searching for:', this.selectedAnimal, this.selectedBreed, this.selectedAge);
+
+    const currentFilters = {
+      animal: this.selectedAnimal,
+      breed: this.selectedBreed,
+      age: this.selectedAge,
+    };
+
+    this.pets$ = this.petService.filterPets(currentFilters);
   }
 
   selectedPet: any = null;

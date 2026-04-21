@@ -1,19 +1,31 @@
 <div>
   <section id="filter-container">
     <div class="filter-title">Filter by</div>
-    <select name="animal" class="filter-pill">
+    <select
+      name="animal"
+      class="filter-pill"
+      [(ngModel)]="selectedAnimal"
+      (change)="onSearchChange()"
+    >
       <option value="">Animal</option>
       @for (animal of animals; track animal) {
         <option [value]="animal">{{ animal }}</option>
       }
     </select>
-    <select name="breed" class="filter-pill">
+
+    <select
+      name="breed"
+      class="filter-pill"
+      [(ngModel)]="selectedBreed"
+      (change)="onSearchChange()"
+    >
       <option value="">Breed</option>
       @for (breed of breeds; track breed) {
         <option [value]="breed">{{ breed }}</option>
       }
     </select>
-    <select name="age" class="filter-pill">
+
+    <select name="age" class="filter-pill" [(ngModel)]="selectedAge" (change)="onSearchChange()">
       <option value="">Age</option>
       @for (age of ages; track age) {
         <option [value]="age">{{ age }} years old</option>
@@ -24,7 +36,7 @@
     @for (pet of pets$ | async; track pet.id) {
       <app-card [data]="pet" (viewDetails)="selectedPet = $event"></app-card>
     } @empty {
-      <h1>No items found in the database</h1>
+      <img src="images/paw.png" alt="Paw" id="loading-img" />
     }
   </section>
 </div>

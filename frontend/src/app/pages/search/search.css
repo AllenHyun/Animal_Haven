@@ -92,3 +92,12 @@ pet-profile {
     box-shadow: 0 4px 15px rgba(0,0,0,0.3);
     padding: 0;
 }
+
+#loading-img {
+    width: 20%;
+    height: 20%;
+    margin: auto;
+    margin-top: 10%;
+    align-self: center;
+    justify-self: center;
+}

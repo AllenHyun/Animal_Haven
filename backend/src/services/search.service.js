@@ -1,3 +1,5 @@
+const prisma = require("../config/prisma");
+
 const getSuggestions = async (searchString, type) => {
   return await prisma.pet.findMany({
     where: {
@@ -25,30 +27,9 @@ const basicSearch = async (searchSring, type) => {
   });
 };
 
-const filter = async (tags) => {
+const filter = async (filters) => {
   return await prisma.pet.findMany({
-    where: {
-      OR: [
-        {
-          breed: {
-            contains: tags,
-            mode: "insensitive",
-          },
-        },
-        {
-          age: {
-            contains: tags,
-            mode: "insensitive",
-          },
-        },
-        {
-          animalType: {
-            contains: tags,
-            mode: "insensitive",
-          },
-        },
-      ],
-    },
+    where: filters,
   });
 };
 
