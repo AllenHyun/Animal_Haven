@@ -6,6 +6,7 @@
       <p class="login-text">
         <span routerLink="/sign-up">Sign up</span> if you don't have an account
       </p>
+
       <form [formGroup]="loginForm" (submit)="login()">
         <div class="input-login">
           <div class="input-group">
@@ -15,12 +16,19 @@
               type="email"
               placeholder="example_email@gmail.com"
               pattern="^[A-Za-z0-9]+@[A-Za-z]+(\.[A-Za-z]+)+$"
+              [class.is-invalid]="loginForm.get('email')?.touched && loginForm.get('email')?.invalid"
             />
+            @if (loginForm.get('email')?.touched && loginForm.get('email')?.invalid) {
+              <small class="error-text">Please enter a valid email</small>
+            }
           </div>
 
           <div class="input-group">
             <label>Password</label>
-            <input formControlName="password" type="password" placeholder="*************" />
+            <input formControlName="password" type="password" placeholder="*************" [class.is-invalid]="loginForm.get('password')?.touched && loginForm.get('password')?.invalid"/>
+            @if (loginForm.get('password')?.touched && loginForm.get('password')?.invalid) {
+              <small class="error-text">Password is required</small>
+            }
           </div>
 
           <div class="final-options">
@@ -28,12 +36,15 @@
               <label for="notifications"> Remember me</label>
               <input type="checkbox" id="notifications" />
             </div>
-
             <p class="forget-text">Forget password?</p>
           </div>
         </div>
 
-        <button type="submit" class="sign-in-button">SIGN IN</button>
+        @if (errorMessage) {
+          <p class="server-error">{{errorMessage}}</p>
+        }
+
+        <button type="submit" class="sign-in-button" [disabled]="isLoading">{{ isLoading ? 'SIGNING IN...' : 'SIGN IN' }}</button>
       </form>
     </div>
 
