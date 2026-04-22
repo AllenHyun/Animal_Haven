@@ -1,12 +1,20 @@
 <main>
   <section id="home-main-container">
-    <img [src]="image" id="image-home" />
+    <div class="carousel-wrapper">
+      @for (img of images; track $index) {
+        <img [src]="img"
+             class="carousel-img"
+             [class.active]="$index === currentImageIndex" />
+      }
+    </div>
+
     <section id="content-main-home">
       <h1 id="title">Find your best companion, give them a second chance</h1>
       <button routerLink="/search" id="adopt-button">Adopt now!</button>
     </section>
   </section>
-  <section>
+
+  <section class="info-section">
     <h1>What is Animal Haven?</h1>
     <div class="h_line"></div>
     <section id="text-index">
@@ -14,12 +22,29 @@
         Animal Haven is a dedicated online platform designed to connect future pet owners with their
         perfect companions. Whether you are looking for a loyal dog, a playful cat, or a cheerful
         bird, our website makes the journey seamless. We proudly partner with local shelters across
-        Spain to bring the entire experience right to your fingertips. Through Animal Haven, you can
-        easily browse available animals, process all the necessary adoption paperwork online, and
-        book in-person appointments to visit the shelters and meet your new best friend
-        face-to-face.
+        Spain to bring the entire experience right to your fingertips.
       </p>
-      <br />
     </section>
+  </section>
+
+  <section class="how-it-works">
+    <h2>How it works</h2>
+    <div class="steps-grid">
+      <div class="step-card">
+        <span class="material-symbols-outlined">search</span>
+        <h3>Search</h3>
+        <p>Find your perfect match among hundreds of animals.</p>
+      </div>
+      <div class="step-card">
+        <span class="material-symbols-outlined">edit_document</span>
+        <h3>Apply</h3>
+        <p>Complete the adoption paperwork easily online.</p>
+      </div>
+      <div class="step-card">
+        <span class="material-symbols-outlined">home_health</span>
+        <h3>Meet & Greet</h3>
+        <p>Visit the shelter and start your new life together.</p>
+      </div>
+    </div>
   </section>
 </main>

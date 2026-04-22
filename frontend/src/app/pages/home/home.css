@@ -1,85 +1,162 @@
-main{
-    display:flex;
-    flex-direction:column;
-    align-items:center;
-    height:800px;
+main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
 }
-img{
-    width:100%;
-    height:800px;
-    margin-bottom:1%;
-}
-#title{
-    font-family: 'Josefin Sans', sans-serif;
-    color:white;
-    font-weight: bold;
-    font-size:35px;
-    margin-bottom:40px;
-    margin-right: 10%;
-}
-h1{
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    color:#2B707C;
-    font-family: 'Josefin Sans', sans-serif;
-    margin-bottom: 0.5%;
-    margin-top:5%;
-    
-}
-#text-index{
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    padding: 10px 120px 80px 140px;
-    width:100%;
-    font-family: 'Josefin Sans', sans-serif;
 
+img {
+  width: 100%;
+  height: 500px;
+  margin-bottom: 1%;
 }
-u{
-    color:#2B707C;
-    text-decoration-thickness: 5px;
+
+#title {
+  font-family: 'Josefin Sans', sans-serif;
+  color: white;
+  font-weight: bold;
+  font-size: 35px;
+  margin-bottom: 40px;
+  margin-right: 10%;
 }
-#adopt-button{
-    cursor: pointer;
-    background-color:white;
-    color:#67C2D2;
-    border-radius:25px;
-    border-color:transparent;
-    width:206px;
-    height:50px;
-    font-size:x-large;
-    font-family: 'Josefin Sans', sans-serif;
-    font-weight: bold;
-    margin-right: 15%;
+
+h1 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #2B707C;
+  font-family: 'Josefin Sans', sans-serif;
+  margin-bottom: 0.5%;
+  margin-top: 5%;
 }
-#home-main-container{
-    position: relative; 
-    width: 100%;
-    height: 600px;    
-    display: flex;
-    justify-content: flex-end;
+
+#text-index {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10px 120px 80px 140px;
+  width: 100%;
+  font-family: 'Josefin Sans', sans-serif;
 }
-#image-home{
-    position: absolute;
-    height: 100%;
-    object-fit: cover;
-    display: block;    
-    z-index: 1;
+
+u {
+  color: #2B707C;
+  text-decoration-thickness: 5px;
 }
-#content-main-home{
-    position: relative; 
-    z-index: 2;        
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    width:30%;
-    margin-top:5%;
+
+#adopt-button {
+  cursor: pointer;
+  background-color: white;
+  color: #67C2D2;
+  border-radius: 25px;
+  border-color: transparent;
+  width: 206px;
+  height: 50px;
+  font-size: x-large;
+  font-family: 'Josefin Sans', sans-serif;
+  font-weight: bold;
+  margin-right: 15%;
 }
+
+#home-main-container {
+  position: relative;
+  width: 100%;
+  height: 600px;
+  display: flex;
+  justify-content: flex-end;
+}
+
+#image-home {
+  position: absolute;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  z-index: 1;
+}
+
+#content-main-home {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 30%;
+  margin-top: 5%;
+}
+
 .h_line {
-    width: 20%;
-    height: 3px;
-    margin-left: 40%;
-    margin-bottom: 15px;
-    background: #2B707C;
+  width: 20%;
+  height: 3px;
+  margin-left: 40%;
+  margin-bottom: 15px;
+  background: #2B707C;
+}
+
+.carousel-wrapper {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+}
+
+.carousel-img {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0;
+  transition: opacity 1.5s ease-in-out;
+  z-index: 1;
+}
+
+.carousel-img.active {
+  opacity: 1;
+  z-index: 2;
+}
+
+.how-it-works {
+  background-color: #DAEDF1;
+  width: 100%;
+  padding: 80px 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.how-it-works h2 {
+  font-family: 'Josefin Sans', sans-serif;
+  color: #2B707C;
+  font-size: 32px;
+  margin-bottom: 50px;
+}
+
+.steps-grid {
+  display: flex;
+  justify-content: center;
+  gap: 50px;
+  max-width: 1000px;
+}
+
+.step-card {
+  flex: 1;
+  text-align: center;
+  padding: 20px;
+}
+
+.step-card span {
+  font-size: 50px;
+  color: #2B707C;
+  margin-bottom: 15px;
+}
+
+.step-card h3 {
+  font-family: 'Josefin Sans', sans-serif;
+  margin: 15px 0;
+}
+
+.step-card p {
+  font-family: 'Josefin Sans', sans-serif;
+  font-size: 15px;
+  color: #555;
 }
