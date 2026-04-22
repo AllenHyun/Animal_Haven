@@ -6,12 +6,12 @@ import { Observable } from 'rxjs';
   providedIn: 'root',
 })
 export class PetService {
-  private apiUrl = 'http://localhost:3000/';
+  private apiUrl = 'http://localhost:3000';
 
   constructor(private http: HttpClient) {}
 
   getPets(): Observable<any[]> {
-    return this.http.get<any[]>(this.apiUrl + 'pets/all');
+    return this.http.get<any[]>(`${this.apiUrl}/pets/all`);
   }
 
   filterPets(filters?: { animal?: string; breed?: string; age?: string }): Observable<any[]> {
@@ -22,6 +22,6 @@ export class PetService {
       if (filters.breed) params = params.set('breed', filters.breed);
       if (filters.age) params = params.set('age', filters.age);
     }
-    return this.http.get<any[]>(this.apiUrl + 'search/filter', { params });
+    return this.http.get<any[]>(`${this.apiUrl}/search/filter`, { params });
   }
 }

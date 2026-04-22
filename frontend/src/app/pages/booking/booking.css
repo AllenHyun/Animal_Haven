@@ -107,3 +107,17 @@
   background-color: #5FB6CC;
   transform: scale(1.05);
 }
+
+#shelter-selector {
+  width: 100%;
+  border-radius: 20px;
+  padding: 10px;
+  border: 2px solid #5FB6CC;
+  background-color: #8EC5D1;
+  margin-bottom: 50px;
+}
+
+#shelter-selector:focus {
+  outline: none;
+  border: 2px solid #5FB6CC;
+}

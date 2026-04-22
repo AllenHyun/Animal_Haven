@@ -1,50 +1,61 @@
 <div class="page-container">
   <div class="login-card booking-layout">
     <h1 class="main-title">Booking Form</h1>
+    <form action="">
+      <div class="booking-content">
+        <div class="card-column">
+          <div class="input-group">
+            <label>Name</label>
 
-    <div class="booking-content">
-      <div class="card-column">
-        <div class="input-group">
-          <label>Name</label>
+            <div class="name-row">
+              <input type="text" placeholder="First Name" />
+              <input type="text" placeholder="Last Name" />
+            </div>
+          </div>
 
-          <div class="name-row">
-            <input type="text" placeholder="First Name" />
-            <input type="text" placeholder="Last Name" />
+          <div class="input-group">
+            <label>Email</label>
+            <input type="text" placeholder="example@gmail.com" />
+          </div>
+
+          <div class="input-group">
+            <label>Confirm email</label>
+            <input type="text" placeholder="example@gmail.com" />
+          </div>
+
+          <div class="input-group">
+            <label>Date</label>
+
+            <div class="date-wrapper">
+              <input type="text" placeholder="dd/MM/yyyy" />
+              <span class="material-symbols-outlined">calendar_today</span>
+            </div>
           </div>
         </div>
 
-        <div class="input-group">
-          <label>Email</label>
-          <input type="text" placeholder="example@gmail.com" />
-        </div>
+        <div class="card-column">
+          <label class="grid-label">Select shelter</label>
+          <select name="shelter" id="shelter-selector" (change)="onShelterChange($event)">
+            <option value="">Shelter</option>
+            @for (shelter of shelters$ | async; track shelter.id) {
+              <option [value]="shelter">
+                {{ shelter.name }}
+              </option>
+            }
+          </select>
+          @if (isShelterSelected) {
+            <label class="grid-label">Select time frame</label>
 
-        <div class="input-group">
-          <label>Confirm email</label>
-          <input type="text" placeholder="example@gmail.com" />
-        </div>
-
-        <div class="input-group">
-          <label>Date</label>
-
-          <div class="date-wrapper">
-            <input type="text" placeholder="dd/MM/yyyy" />
-            <span class="material-symbols-outlined">calendar_today</span>
-          </div>
-        </div>
-      </div>
-
-      <div class="card-column">
-        <label class="grid-label">Select time frame</label>
-
-        <div class="time-grid">
-          <button class="time-slot"></button>
-          <button class="time-slot"></button>
-          <button class="time-slot"></button>
-          <button class="time-slot"></button>
-          <button class="time-slot"></button>
-          <button class="time-slot"></button>
+            <div class="time-grid">
+              @for (timeFrame of timeFrames$ | async; track timeFrame) {
+                <button [value]="timeFrame" class="time-slot">
+                  {{ timeFrame.timeFrame }}
+                </button>
+              }
+            </div>
+          }
         </div>
       </div>
-    </div>
+    </form>
   </div>
 </div>

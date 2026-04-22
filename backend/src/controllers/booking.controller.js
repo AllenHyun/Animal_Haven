@@ -1,4 +1,5 @@
 const bookingService = require("../services/booking.service");
+const { getSuggestions } = require("./search.controller");
 
 const saveBooking = async (req, res) => {
   try {
@@ -23,4 +24,14 @@ const getTimeFrames = async (req, res) => {
   }
 };
 
-module.exports = { saveBooking, getTimeFrames };
+const getShelters = async (req, res) => {
+  try {
+    const shelters = await bookingService.getShelters();
+    res.status(200).json(shelters);
+  } catch (error) {
+    console.error("PRISMA ERROR:", error);
+    res.status(400).json({ error: "Failed to retrieve available time frames" });
+  }
+};
+
+module.exports = { saveBooking, getTimeFrames, getShelters };

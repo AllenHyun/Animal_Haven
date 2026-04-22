@@ -27,4 +27,10 @@ const getTimeFrames = async (shelterId) => {
   });
 };
 
-module.exports = { saveBooking };
+const getShelters = async (shelterId) => {
+  return await prisma.shelter.findMany({
+    select: { id: true, name: true, address: true },
+  });
+};
+
+module.exports = { saveBooking, getTimeFrames, getShelters };

@@ -24,7 +24,7 @@ app.use(express.json());
 app.use("/api/auth", authRoutes);
 app.use("/search", searchRoutes);
 app.use("/pets", petRoutes);
-app.use("/bookings", bookingRoutes);
+app.use("/booking", bookingRoutes);
 
 app.use(function (err, req, res, next) {
   console.error("Backend Error:", err.message);

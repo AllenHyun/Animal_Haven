@@ -4,5 +4,6 @@ const bookingController = require("../controllers/booking.controller");
 
 router.post("/save", bookingController.saveBooking);
 router.get("/getTimeFrames", bookingController.getTimeFrames);
+router.get("/getShelters", bookingController.getShelters);
 
 module.exports = router;
