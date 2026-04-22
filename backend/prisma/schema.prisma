@@ -26,11 +26,23 @@ model User {
 
 model Booking {
   id        Int      @id @default(autoincrement())
+  name      String
+  email     String
   date      DateTime @default(now())
+  timeFrame String
   location  Shelter  @relation(fields: [shelterId], references: [id])
   user      User?    @relation(fields: [userId], references: [id])
   userId    Int?
   shelterId Int
+}
+
+model AvailableTime {
+  id          Int      @id @default(autoincrement())
+  timeFrame   String
+  date        DateTime
+  shelter     Shelter  @relation(fields: [shelterId], references: [id])
+  shelterId   Int
+  isAvailable Boolean  @default(true)
 }
 
 enum ApplicationType {
@@ -57,12 +69,13 @@ model Application {
 }
 
 model Shelter {
-  id       Int       @id @default(autoincrement())
-  name     String
-  address  String
-  postcode Int
-  pets     Pet[]
-  bookings Booking[]
+  id             Int             @id @default(autoincrement())
+  name           String
+  address        String
+  postcode       Int
+  pets           Pet[]
+  bookings       Booking[]
+  availableTimes AvailableTime[]
 }
 
 enum Gender {

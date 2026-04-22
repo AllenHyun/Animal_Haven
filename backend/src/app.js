@@ -3,6 +3,7 @@ var cors = require("cors");
 var authRoutes = require("./routes/auth.routes");
 var searchRoutes = require("./routes/search.routes");
 var petRoutes = require("./routes/pets.routes");
+var bookingRoutes = require("./routes/booking.routes");
 const prisma = require("../src/config/prisma");
 
 var app = express();
@@ -23,9 +24,9 @@ app.use(express.json());
 app.use("/api/auth", authRoutes);
 app.use("/search", searchRoutes);
 app.use("/pets", petRoutes);
+app.use("/bookings", bookingRoutes);
 
 app.use(function (err, req, res, next) {
-  // Log the error to your terminal so you can see it
   console.error("Backend Error:", err.message);
 
   res.status(err.status || 500).json({
