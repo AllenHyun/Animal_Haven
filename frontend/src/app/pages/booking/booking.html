@@ -1,35 +1,48 @@
 <div class="page-container">
   <div class="login-card booking-layout">
     <h1 class="main-title">Booking Form</h1>
-    <form action="">
+    <form [formGroup]="bookingForm" (submit)="submitBooking()">
       <div class="booking-content">
         <div class="card-column">
           <div class="input-group">
             <label>Name</label>
 
             <div class="name-row">
-              <input type="text" placeholder="First Name" />
-              <input type="text" placeholder="Last Name" />
+              <input formControlName="firstName" type="text" placeholder="First Name"  [class.is-invalid]="bookingForm.get('firstName')?.touched && bookingForm.get('firstName')?.invalid"/>
+              <input formControlName="lastName" type="text" placeholder="Last Name" [class.is-invalid]="bookingForm.get('lastName')?.touched && bookingForm.get('lastName')?.invalid"/>
             </div>
+            @if ((bookingForm.get('firstName')?.touched && bookingForm.get('firstName')?.invalid) || (bookingForm.get('lastName')?.touched && bookingForm.get('lastName')?.invalid)) {
+              <small class="error-text">Names are required (min 2 characters)</small>
+            }
           </div>
 
           <div class="input-group">
             <label>Email</label>
-            <input type="text" placeholder="example@gmail.com" />
+            <input formControlName="email" type="text" placeholder="example@gmail.com" [class.is-invalid]="bookingForm.get('email')?.touched && bookingForm.get('email')?.invalid" />
+
+            @if (bookingForm.get('email')?.touched && bookingForm.get('email')?.invalid) {
+              <small class="error-text">Please enter a valid email</small>
+            }
           </div>
 
           <div class="input-group">
             <label>Confirm email</label>
-            <input type="text" placeholder="example@gmail.com" />
+            <input formControlName="confirmEmail" type="text" placeholder="example@gmail.com" [class.is-invalid]="bookingForm.get('confirmEmail')?.touched && (bookingForm.get('confirmEmail')?.invalid || bookingForm.hasError('emailMismatch'))"/>
+
+            @if (bookingForm.get('confirmEmail')?.touched && bookingForm.hasError('emailMismatch')) {
+              <small class="error-text">Emails do not match</small>
+            }
           </div>
 
           <div class="input-group">
             <label>Date</label>
 
             <div class="date-wrapper">
-              <input type="text" placeholder="dd/MM/yyyy" />
-              <span class="material-symbols-outlined">calendar_today</span>
+              <input formControlName="date" type="date" [class.is-invalid]="bookingForm.get('date')?.touched && bookingForm.get('date')?.invalid"/>
             </div>
+            @if (bookingForm.get('date')?.touched && bookingForm.get('date')?.invalid) {
+              <small class="error-text">Please select a date</small>
+            }
           </div>
         </div>
 
@@ -56,6 +69,9 @@
           }
         </div>
       </div>
+
+      <button type="submit" class="create-button">CONFIRM BOOKING</button>
+
     </form>
   </div>
 </div>
