@@ -1,22 +1,33 @@
-const bookingService = require("../services/booking.service");
-const { getSuggestions } = require("./search.controller");
-
+import bookingService from "../services/booking.service.js";
+import getSuggestions from './search.controller.js';
 const saveBooking = async (req, res) => {
+  const { name, email, date, shelterId, timeFrame, userid } = req.body;
+
   try {
-    const booking = await bookingService.saveBooking();
-    res.status(200).json(booking);
+    const result = await bookingService.saveBooking(
+      name, 
+      email, 
+      date, 
+      shelterId, 
+      timeFrame, 
+      userid
+    ); 
+    
+    res.status(201).json(result);
   } catch (error) {
-    console.error("PRISMA ERROR:", error);
-    res
-      .status(400)
-      .json({ error: "Failed to save booking, please try again later" });
+    console.error("ERROR EN BACKEND:", error);
+    res.status(400).json({ 
+      error: "Failed to save booking", 
+      details: error.message 
+    });
   }
 };
-
 const getTimeFrames = async (req, res) => {
   try {
-    const shelterId = req.query.shelter;
-    const times = await bookingService.getTimeFrames(shelterId);
+    const { id, date } = req.query;
+
+    const times = await bookingService.getTimeFrames({ id, date });
+
     res.status(200).json(times);
   } catch (error) {
     console.error("PRISMA ERROR:", error);
@@ -33,5 +44,4 @@ const getShelters = async (req, res) => {
     res.status(400).json({ error: "Failed to retrieve available time frames" });
   }
 };
-
-module.exports = { saveBooking, getTimeFrames, getShelters };
+export { saveBooking, getTimeFrames, getShelters };

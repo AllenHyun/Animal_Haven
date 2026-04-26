@@ -6,7 +6,7 @@ var petRoutes = require("./routes/pets.routes");
 var bookingRoutes = require("./routes/booking.routes");
 const prisma = require("../src/config/prisma");
 
-var app = express();
+var app = express(express.json());
 const PORT = 3000;
 
 app.listen(PORT, (error) => {

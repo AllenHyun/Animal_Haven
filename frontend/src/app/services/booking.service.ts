@@ -14,11 +14,13 @@ export class BookingService {
     return this.http.post(`${this.apiUrl}/booking/save`, booking);
   }
 
-  getTimeFrames(shelterId: number): Observable<any[]> {
-    let params = new HttpParams();
-    params.set('shelterId', shelterId);
-    return this.http.get<any[]>(`${this.apiUrl}/booking/getTimeFrames`, { params });
-  }
+ getTimeFrames(timeframe: any): Observable<any[]> {
+  let params = new HttpParams()
+    .set('id', timeframe.id)
+    .set('date', timeframe.date);
+
+  return this.http.get<any[]>(`${this.apiUrl}/booking/getTimeFrames`, { params });
+}
 
   getShelters(): Observable<any[]> {
     console.log(`${this.apiUrl}/booking/getShelters`);

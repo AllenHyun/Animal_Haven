@@ -13,6 +13,9 @@ const getSuggestions = async (searchString, type) => {
       id: true,
       name: true,
     },
+      include: {
+      shelter: true, 
+    },
   });
 };
 
@@ -23,6 +26,9 @@ const basicSearch = async (searchSring, type) => {
         contains: searchString,
         mode: "insensitive",
       },
+      include: {
+      shelter: true, 
+    },
     },
   });
 };
@@ -30,6 +36,9 @@ const basicSearch = async (searchSring, type) => {
 const filter = async (filters) => {
   return await prisma.pet.findMany({
     where: filters,
+      include: {
+      shelter: true, 
+    },
   });
 };
 

@@ -132,7 +132,12 @@
   display: block;
   animation: fadeIn 0.3s ease-in-out;
 }
-
+.time-slot.selected {
+  background-color: #187b92;
+  color: white;
+  border-color: #187b92;
+  font-weight: bold;
+}
 .server-error{
   background-color: rgba(231, 76, 60, 0.1);
   color: #E74C3C;

@@ -1,21 +1,102 @@
 const { PrismaClient } = require("../src/generated/prisma/client");
-const animalData = require("./data/animals.json");
 
 const prisma = require("../src/config/prisma");
 
-async function main() {
-  console.log("Starting seed...");
+const NAME_POOL = {
+  dog: ["Max", "Bella", "Charlie", "Luna", "Rocky", "Daisy", "Cooper", "Lola", "Bailey", "Molly", "Buster", "Sadie", "Bruno", "Coco", "Zeus"],
+  cat: ["Oliver", "Luna", "Simba", "Chloe", "Milo", "Nala", "Leo", "Mia", "Jack", "Lily", "Loki", "Sophie", "Tigger", "Cleo", "Whiskers"]
+};
 
-  let petsUpserted = 0;
-  for (const pet of animalData) {
-    await prisma.pet.upsert({
-      where: { id: pet.id },
-      update: pet,
-      create: pet,
+const getRandomName = (type) => {
+  const names = NAME_POOL[type];
+  return names[Math.floor(Math.random() * names.length)];
+};
+
+// --- CONFIGURACIÓN DE APIS EXTERNAS ---
+const API_KEYS = {
+  dog: "live_DPtTBmQ6F5CfKoYiagIrvsd9GmMVurooyg7ZthNqEHpLIopRqTDciEpf9IKrQCXx",
+  cat: "live_v24hpe1hlMbyeQt6mGVpaPP6FkXqnEXyJyBRFiuJzAB59KqkhoqEYj4gpC5zlxFv"
+};
+
+const fetchPets = async (type) => {
+  const url = type === "dog"
+    ? "https://api.thedogapi.com/v1/images/search?has_breeds=true&limit=50"
+    : "https://api.thecatapi.com/v1/images/search?has_breeds=true&limit=50";
+
+  const res = await fetch(url, {
+    headers: { "x-api-key": API_KEYS[type] }
+  });
+  return await res.json();
+};
+
+// --- HELPERS DE NORMALIZACIÓN ---
+const getAgeInt = (type) => type === "dog" ? Math.floor(Math.random() * 14) + 1 : Math.floor(Math.random() * 16) + 1;
+const getRandomGender = () => Math.random() > 0.5 ? "Male" : "Female";
+const getDescription = (name, breed, type) => {
+  const base = type === "dog" ? "a friendly, playful, and loyal dog." : "a curious, independent, and affectionate cat.";
+  return `${name} (${breed}) is ${base} Looking for a loving home.`;
+};
+
+// --- FUNCIÓN PRINCIPAL DE SEEDING ---
+async function main() {
+  console.log("🚀 Iniciando el proceso de sembrado (Seed)...");
+
+  try {
+    // 1. Verificar si existen Shelters (necesarios para la relación de la mascota)
+    const shelters = await prisma.shelter.findMany();
+    
+    if (shelters.length === 0) {
+      console.error("❌ Error: No se encontraron refugios (shelters) en la base de datos. Crea algunos primero.");
+      process.exit(1);
+    }
+
+    const getRandomShelterId = () => shelters[Math.floor(Math.random() * shelters.length)].id;
+
+    // 2. Obtener datos de las APIs
+    console.log("📡 Conectando con las APIs de animales...");
+    const [dogs, cats] = await Promise.all([
+      fetchPets("dog"),
+      fetchPets("cat")
+    ]);
+
+    // 3. Normalizar los datos para que coincidan con el esquema de Prisma
+    const normalizePet = (pet, type) => {
+      const breedData = pet.breeds?.[0];
+      const breedName = breedData?.name || "Mixed Breed";
+      const petName = getRandomName(type);
+
+      return {
+        name: petName,
+        breed: breedName,
+        age: getAgeInt(type),
+        gender: getRandomGender(),
+        animalType: type,
+        profileImg: pet.url,
+        description: getDescription(petName, breedName, type),
+        shelterId: getRandomShelterId()
+      };
+    };
+
+    const allPetsRaw = [
+      ...dogs.map((p) => normalizePet(p, "dog")),
+      ...cats.map((p) => normalizePet(p, "cat"))
+    ];
+
+    // 4. Inserción masiva en la base de datos
+    console.log(`📝 Insertando ${allPetsRaw.length} mascotas en la base de datos...`);
+    
+    // Usamos createMany para eficiencia (o un loop con upsert si prefieres evitar duplicados)
+    const created = await prisma.pet.createMany({
+      data: allPetsRaw,
+      skipDuplicates: true, // Útil si ejecutas el seed varias veces
     });
-    petsUpserted++;
+
+    console.log(`✅ ¡Éxito! Se han creado ${created.count} nuevas mascotas.`);
+
+  } catch (error) {
+    console.error("❌ Error durante el seeding:", error);
+    throw error;
   }
-  console.log(`Upserted ${petsUpserted} pets.`);
 }
 
 main()
