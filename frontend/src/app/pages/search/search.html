@@ -20,8 +20,8 @@
       (change)="onSearchChange()"
     >
       <option value="">Breed</option>
-      @for (breed of breeds; track breed) {
-        <option [value]="breed">{{ breed }}</option>
+      @for (elem of breeds$ | async; track elem.breed) {
+        <option [value]="elem.breed">{{ elem.breed }}</option>
       }
     </select>
 

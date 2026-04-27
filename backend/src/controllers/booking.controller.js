@@ -1,24 +1,25 @@
-import bookingService from "../services/booking.service.js";
-import getSuggestions from './search.controller.js';
+const bookingService = require("../services/booking.service.js");
+const getSuggestions = require("./search.controller.js");
+
 const saveBooking = async (req, res) => {
   const { name, email, date, shelterId, timeFrame, userid } = req.body;
 
   try {
     const result = await bookingService.saveBooking(
-      name, 
-      email, 
-      date, 
-      shelterId, 
-      timeFrame, 
-      userid
-    ); 
-    
+      name,
+      email,
+      date,
+      shelterId,
+      timeFrame,
+      userid,
+    );
+
     res.status(201).json(result);
   } catch (error) {
     console.error("ERROR EN BACKEND:", error);
-    res.status(400).json({ 
-      error: "Failed to save booking", 
-      details: error.message 
+    res.status(400).json({
+      error: "Failed to save booking",
+      details: error.message,
     });
   }
 };
@@ -44,4 +45,5 @@ const getShelters = async (req, res) => {
     res.status(400).json({ error: "Failed to retrieve available time frames" });
   }
 };
-export { saveBooking, getTimeFrames, getShelters };
+
+module.exports = { saveBooking, getTimeFrames, getShelters };

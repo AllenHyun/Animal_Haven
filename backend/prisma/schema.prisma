@@ -83,13 +83,18 @@ enum Gender {
   Female
 }
 
+enum Animal {
+  Cat
+  Dog
+}
+
 model Pet {
   id          Int      @id @default(autoincrement())
   name        String
   breed       String?
   age         Int
   gender      Gender
-  animalType  String
+  animalType  Animal
   profileImg  String
   description String   @default("Description")
   shelter     Shelter? @relation(fields: [shelterId], references: [id])

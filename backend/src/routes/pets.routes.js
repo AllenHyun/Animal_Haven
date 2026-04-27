@@ -3,5 +3,7 @@ const router = express.Router();
 const petController = require("../controllers/pets.controller");
 
 router.get("/all", petController.getPets);
+router.get("/dogBreeds", petController.getDogBreeds);
+router.get("/catBreeds", petController.getCatBreeds);
 
 module.exports = router;

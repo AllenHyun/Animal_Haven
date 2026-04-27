@@ -6,7 +6,13 @@
         <button class="button-searcher" type="submit">
           <span class="material-symbols-outlined">menu</span>
         </button>
-        <input type="text" name="search_animals" placeholder="Search for a new friend" required />
+        <input
+          [formControl]="searchInput"
+          type="text"
+          name="search_animals"
+          placeholder="Search for a new friend"
+          required
+        />
         <button class="button-searcher" type="submit">
           <span class="material-symbols-outlined">search</span>
         </button>

@@ -4,13 +4,13 @@
   </section>
   <section id="data-container">
     <h2>{{ pet.name }}</h2>
-    <p>{{ pet.animalType }} | {{ pet.breed }} | {{ pet.age }} years old </p>
+    <p>{{ pet.animalType }} | {{ pet.breed }} | {{ pet.age }} years old</p>
     <h3>Important facts</h3>
-      <ul>
-        <li>Vaccinated: {{ pet.vaccinated ? 'Yes' : 'No' }}</li>
-        <li>Sterilized: {{ pet.sterilized ? 'Yes' : 'No' }}</li>
-        <li>Rescue shelter:{{ pet.shelter.name }}</li>
-      </ul>
+    <ul>
+      <li>Vaccinated: {{ pet.vaccinated ? 'Yes' : 'No' }}</li>
+      <li>Sterilized: {{ pet.sterilized ? 'Yes' : 'No' }}</li>
+      <li>Rescue shelter: {{ pet.shelter.name }}</li>
+    </ul>
     <h3>General description</h3>
     <p>
       {{ pet.description }}

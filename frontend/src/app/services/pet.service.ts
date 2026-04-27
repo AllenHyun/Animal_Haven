@@ -24,4 +24,12 @@ export class PetService {
     }
     return this.http.get<any[]>(`${this.apiUrl}/search/filter`, { params });
   }
+
+  getDogBreeds(): Observable<any[]> {
+    return this.http.get<any[]>(`${this.apiUrl}/pets/dogBreeds`);
+  }
+
+  getCatBreeds(): Observable<any[]> {
+    return this.http.get<any[]>(`${this.apiUrl}/pets/catBreeds`);
+  }
 }

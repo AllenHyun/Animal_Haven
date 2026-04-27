@@ -17,12 +17,13 @@ const basicSearch = async (req, res) => {
   try {
     const searchQuery = req.query.q;
 
-    if (!searchQuery) return res.status(200).json([]);
+    if (!searchQuery) return res.status(400).json([]);
 
     const results = await searchService.basicSearch(searchQuery);
     res.status(200).json(results);
   } catch (error) {
-    res.status(500).json({ error: "Search failed" });
+    console.log("Error:", error.message);
+    res.status(500).json({ error: error.message });
   }
 };
 
@@ -31,7 +32,7 @@ const filter = async (req, res) => {
     const filters = {};
     if (req.query.animalType) filters.animalType = req.query.animalType;
     if (req.query.breed) filters.breed = req.query.breed;
-    if (req.query.age) filters.age = parseInt(req.query.age); // Prisma strict typing!
+    if (req.query.age) filters.age = parseInt(req.query.age);
 
     const results = await searchService.filter(filters);
     res.status(200).json(results);

@@ -1,51 +1,24 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, inject } from '@angular/core';
 import { Card } from '../../components/card/card';
 import { PetProfile } from '../../components/petProfle/petProfile';
 import { PetService } from '../../services/pet.service';
-import { Observable } from 'rxjs';
+import { BehaviorSubject, combineLatest, map, Observable, switchMap } from 'rxjs';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
+import { SearchService } from '../../services/search.service';
+import { ActivatedRoute } from '@angular/router';
 
+interface Pet {}
 @Component({
   selector: 'app-search',
   imports: [Card, PetProfile, CommonModule, FormsModule],
   templateUrl: './search.html',
   styleUrl: './search.css',
 })
-export class Search implements OnInit {
-  pets$!: Observable<any[]>;
+export class Search {
   loading = true;
-
-  // Provisional hasta que se obtengan de la BD en forma de Enum
   animals: string[] = ['Cat', 'Dog'];
-
-  breeds: string[] = [
-    'Abyssinian',
-    'Beagle',
-    'Bengal',
-    'Boxer',
-    'Bulldog',
-    'Dachshund',
-    'Doberman',
-    'Exotic Shorthair',
-    'German Shepherd',
-    'Golden Retriever',
-    'Himalayan',
-    'Husky',
-    'Labrador',
-    'Maine Coon',
-    'Persian',
-    'Pomeranian',
-    'Ragdoll',
-    'Rottweiler',
-    'Russian Blue',
-    'Shiba Inu',
-    'Siamese',
-    'Siberian',
-    'Sphynx',
-    'Tabby',
-    'Tuxedo',
-  ];
+  breeds$!: Observable<any[]>;
 
   ages: number[] = [1, 2, 3, 4, 5, 6, 7, 8];
 
@@ -53,22 +26,48 @@ export class Search implements OnInit {
   selectedBreed: string = '';
   selectedAge: string = '';
 
-  constructor(private petService: PetService) {}
+  private filters$ = new BehaviorSubject({
+    animal: '',
+    breed: '',
+    age: '',
+  });
 
-  ngOnInit(): void {
-    this.pets$ = this.petService.getPets();
-  }
+  private route = inject(ActivatedRoute);
+  private searchService = inject(SearchService);
+
+  pets$ = combineLatest([
+    this.route.queryParams.pipe(map((params) => params['q'] || '')),
+    this.filters$,
+  ]).pipe(
+    switchMap(([q, filters]) => {
+      const hasQuery = q && q.length >= 3;
+
+      const hasFilters = filters.animal || filters.breed || filters.age;
+      if (hasFilters) {
+        return this.petService.filterPets(filters);
+      }
+      if (hasQuery) {
+        console.log('Query:', q, 'Filters:', filters);
+        return this.searchService.search(q);
+      }
+
+      return this.petService.getPets();
+    }),
+  );
+
+  constructor(private petService: PetService) {}
 
   onSearchChange(): void {
     console.log('Searching for:', this.selectedAnimal, this.selectedBreed, this.selectedAge);
 
-    const currentFilters = {
+    if (this.selectedAnimal === 'Dog') this.breeds$ = this.petService.getDogBreeds();
+    else if (this.selectedAnimal === 'Cat') this.breeds$ = this.petService.getCatBreeds();
+
+    this.filters$.next({
       animal: this.selectedAnimal,
       breed: this.selectedBreed,
       age: this.selectedAge,
-    };
-
-    this.pets$ = this.petService.filterPets(currentFilters);
+    });
   }
 
   selectedPet: any = null;

@@ -1,6 +1,6 @@
 const prisma = require("../config/prisma");
 
-const getSuggestions = async (searchString, type) => {
+const getSuggestions = async (searchString) => {
   return await prisma.pet.findMany({
     where: {
       name: {
@@ -13,22 +13,18 @@ const getSuggestions = async (searchString, type) => {
       id: true,
       name: true,
     },
-      include: {
-      shelter: true, 
+    include: {
+      shelter: true,
     },
   });
 };
 
-const basicSearch = async (searchSring, type) => {
+const basicSearch = async (searchSring) => {
   return await prisma.pet.findMany({
     where: {
       name: {
-        contains: searchString,
-        mode: "insensitive",
+        contains: searchSring,
       },
-      include: {
-      shelter: true, 
-    },
     },
   });
 };
@@ -36,8 +32,8 @@ const basicSearch = async (searchSring, type) => {
 const filter = async (filters) => {
   return await prisma.pet.findMany({
     where: filters,
-      include: {
-      shelter: true, 
+    include: {
+      shelter: true,
     },
   });
 };
