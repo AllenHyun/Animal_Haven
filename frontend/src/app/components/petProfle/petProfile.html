@@ -1,6 +1,6 @@
 <div id="main-container">
   <section id="img-container">
-    <img [src]="pet.profileImg" alt="" />
+    <img [src]="pet.profileImg" [alt]="'Photo of ' + pet.name" />
   </section>
   <section id="data-container">
     <h2>{{ pet.name }}</h2>

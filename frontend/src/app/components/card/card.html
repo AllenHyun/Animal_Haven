@@ -1,7 +1,7 @@
 <div id="card-container">
   <div id="card-content">
     <div id="card-img">
-      <img [src]="data.profileImg" alt="" />
+      <img [src]="data.profileImg" [alt]="'Profile picture of ' + data.name" />
     </div>
     <div id="card-name">
       {{ data.name }}
