@@ -160,3 +160,8 @@ u {
   font-size: 15px;
   color: #555;
 }
+
+#text-index p {
+  line-height: 1.8;
+  margin-bottom: 20px;
+}
