@@ -4,7 +4,8 @@
       @for (img of images; track $index) {
         <img [src]="img"
              class="carousel-img"
-             [class.active]="$index === currentImageIndex" />
+             [class.active]="$index === currentImageIndex"
+              alt="Find your perfect pet companion at Animal Haven"/>
       }
     </div>
 
