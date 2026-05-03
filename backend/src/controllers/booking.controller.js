@@ -26,8 +26,8 @@ const saveBooking = async (req, res) => {
 const getTimeFrames = async (req, res) => {
   try {
     const { id, date } = req.query;
-
-    const times = await bookingService.getTimeFrames({ id, date });
+    console.log("This is the date:", date);
+    const times = await bookingService.getTimeFrames(id, date);
 
     res.status(200).json(times);
   } catch (error) {
@@ -42,7 +42,7 @@ const getShelters = async (req, res) => {
     res.status(200).json(shelters);
   } catch (error) {
     console.error("PRISMA ERROR:", error);
-    res.status(400).json({ error: "Failed to retrieve available time frames" });
+    res.status(400).json({ error: "Failed to retrieve available shelters" });
   }
 };
 

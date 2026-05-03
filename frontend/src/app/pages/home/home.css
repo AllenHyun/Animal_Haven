@@ -24,7 +24,7 @@ h1 {
   display: flex;
   justify-content: center;
   align-items: center;
-  color: #2B707C;
+  color: #2b707c;
   font-family: 'Josefin Sans', sans-serif;
   margin-bottom: 0.5%;
   margin-top: 5%;
@@ -40,14 +40,14 @@ h1 {
 }
 
 u {
-  color: #2B707C;
+  color: #2b707c;
   text-decoration-thickness: 5px;
 }
 
 #adopt-button {
   cursor: pointer;
   background-color: white;
-  color: #67C2D2;
+  color: #67c2d2;
   border-radius: 25px;
   border-color: transparent;
   width: 206px;
@@ -80,8 +80,8 @@ u {
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
   width: 30%;
-  margin-top: 5%;
 }
 
 .h_line {
@@ -89,7 +89,7 @@ u {
   height: 3px;
   margin-left: 40%;
   margin-bottom: 15px;
-  background: #2B707C;
+  background: #2b707c;
 }
 
 .carousel-wrapper {
@@ -116,7 +116,7 @@ u {
 }
 
 .how-it-works {
-  background-color: #DAEDF1;
+  background-color: #daedf1;
   width: 100%;
   padding: 80px 0;
   display: flex;
@@ -126,7 +126,7 @@ u {
 
 .how-it-works h2 {
   font-family: 'Josefin Sans', sans-serif;
-  color: #2B707C;
+  color: #2b707c;
   font-size: 32px;
   margin-bottom: 50px;
 }
@@ -146,7 +146,7 @@ u {
 
 .step-card span {
   font-size: 50px;
-  color: #2B707C;
+  color: #2b707c;
   margin-bottom: 15px;
 }
 

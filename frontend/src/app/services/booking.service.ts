@@ -2,6 +2,13 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
+export interface AvailableTime {
+  id: number;
+  timeFrame: string;
+  date: Date;
+  shelterId: number;
+  isAvailable: boolean;
+}
 @Injectable({
   providedIn: 'root',
 })
@@ -14,13 +21,11 @@ export class BookingService {
     return this.http.post(`${this.apiUrl}/booking/save`, booking);
   }
 
- getTimeFrames(timeframe: any): Observable<any[]> {
-  let params = new HttpParams()
-    .set('id', timeframe.id)
-    .set('date', timeframe.date);
+  getTimeFrames(timeframe: any): Observable<AvailableTime[]> {
+    let params = new HttpParams().set('id', timeframe.id).set('date', timeframe.date);
 
-  return this.http.get<any[]>(`${this.apiUrl}/booking/getTimeFrames`, { params });
-}
+    return this.http.get<any[]>(`${this.apiUrl}/booking/getTimeFrames`, { params });
+  }
 
   getShelters(): Observable<any[]> {
     console.log(`${this.apiUrl}/booking/getShelters`);

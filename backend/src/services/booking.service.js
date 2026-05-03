@@ -1,13 +1,14 @@
 const prisma = require("../config/prisma");
+
 const saveBooking = async (name, email, date, shelterId, timeFrame, userid) => {
   return await prisma.$transaction(async (tx) => {
-    
     const slots = await tx.availableTime.findMany({
-      where: { shelterId: parseInt(shelterId) }
+      where: { shelterId: parseInt(shelterId) },
     });
-    const slot = slots.find(s => 
-      s.timeFrame.toString().includes(timeFrame) && 
-      (s.isAvailable === true || s.isAvailable === 1)
+    const slot = slots.find(
+      (s) =>
+        s.timeFrame.toString().includes(timeFrame) &&
+        (s.isAvailable === true || s.isAvailable === 1),
     );
 
     if (!slot) {
@@ -17,7 +18,7 @@ const saveBooking = async (name, email, date, shelterId, timeFrame, userid) => {
     // 3. Bloqueamos el horario usando su ID único (esto no falla nunca)
     await tx.availableTime.update({
       where: { id: slot.id },
-      data: { isAvailable: false }
+      data: { isAvailable: false },
     });
 
     // 4. Creamos el registro de la reserva
@@ -26,30 +27,32 @@ const saveBooking = async (name, email, date, shelterId, timeFrame, userid) => {
         name,
         email,
         timeFrame,
-        date: slot.date, 
+        date: slot.date,
         shelterId: parseInt(shelterId),
-        userId: userid ? parseInt(userid) : null
+        userId: userid ? parseInt(userid) : null,
       },
     });
   });
 };
 
-const getTimeFrames = async (timeframe) => {
-  const start = new Date();
-  start.setHours(0, 0, 0, 0);
+const getTimeFrames = async (id, date) => {
+  const shelterId = parseInt(id, 10);
 
-  const end = new Date();
-  end.setHours(23, 59, 59, 999);
+  const start = new Date(date);
+  start.setUTCHours(0, 0, 0, 0);
+  const end = new Date(date);
+  end.setUTCHours(23, 59, 59, 999);
 
-  const c = await prisma.availableTime.findMany({
-  where: {
-    shelterId: parseInt(timeframe.id, 10),
-    isAvailable: true,
-
-  },
-});
-console.log(c);
- return c;
+  return await prisma.availableTime.findMany({
+    where: {
+      shelterId: shelterId,
+      date: {
+        gte: start,
+        lte: end,
+      },
+      isAvailable: true,
+    },
+  });
 };
 /** 
 const getTimeFrames = async (timeframe) => {
