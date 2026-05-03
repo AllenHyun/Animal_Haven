@@ -61,10 +61,14 @@ input:focus {
 
 .section-header {
   display: flex;
-  justify-content: flex-start;
   align-items: center;
-  padding-right: 40px;
   gap: 30px;
+}
+
+header section:first-child {
+  justify-content: flex-start;
+  padding-right: 40px;
+  flex-grow: 0.3;
 }
 
 header section:last-child {
@@ -189,4 +193,43 @@ header section:last-child {
 .logout-button:hover {
   background-color: #f5f5f5;
   border-radius: 10px;
+}
+
+@media (max-width: 768px) {
+  .button-header {
+    padding: 12px;
+    font-size: 16px;
+    width: 100%;
+  }
+
+  #sign-up-button {
+    width: 100%;
+    margin-top: 10px;
+  }
+
+  .button-searcher {
+    padding: 8px;
+  }
+
+  .logout-button {
+    padding: 10px 20px;
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 480px) {
+  .button-header,
+  #sign-up-button {
+    font-size: 14px;
+    padding: 15px;
+  }
+
+  .button-searcher span {
+    font-size: 20px;
+  }
+
+  .logout-button {
+    width: 100%;
+    text-align: center;
+  }
 }

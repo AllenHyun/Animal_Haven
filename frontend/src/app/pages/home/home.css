@@ -165,3 +165,21 @@ u {
   line-height: 1.8;
   margin-bottom: 20px;
 }
+
+@media (max-width: 768px) {
+    #adopt-button {
+        width: 100%;
+        padding: 15px 20px;
+        font-size: 1.2rem;
+        display: block;
+        margin: 0 auto;
+    }
+}
+
+@media (max-width: 480px) {
+    #adopt-button {
+        font-size: 1rem;
+        padding: 12px 15px;
+        border-radius: 25px;
+    }
+}
