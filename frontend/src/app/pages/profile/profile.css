@@ -204,3 +204,45 @@
   color: #333;
   width: fit-content;
 }
+@media (max-width: 768px) {
+    
+    .arrow {
+        font-size: 40px; 
+        padding: 5px;
+        cursor: pointer;
+    }
+
+   
+    .carousel-container {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 10px;
+    }
+
+   
+    app-card {
+        flex: 0 0 100%; 
+    }
+}
+
+@media (max-width: 480px) {
+    
+    .arrow {
+        font-size: 35px;
+    }
+
+ 
+    .empty-section {
+        font-size: 14px;
+        text-align: center;
+        padding: 10px;
+    }
+
+    
+    .arrow {
+        background-color: rgba(255, 255, 255, 0.8);
+        border-radius: 50%;
+        box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+}

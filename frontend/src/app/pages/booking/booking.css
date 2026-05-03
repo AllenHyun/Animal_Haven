@@ -182,3 +182,30 @@
 .create-button:hover {
   background-color: #4DA3B8;
 }
+
+@media (max-width: 768px) {
+    .create-button {
+        width: 100%;
+        padding: 15px;
+        font-size: 18px;
+        margin-top: 20px;
+    }
+
+    .time-slot {
+        padding: 12px;
+        font-size: 16px;
+    }
+}
+
+@media (max-width: 480px) {
+    .create-button {
+        font-size: 16px;
+        letter-spacing: 1px;
+    }
+
+    .time-slot {
+        padding: 10px;
+        font-size: 14px;
+        min-height: 44px; 
+    }
+}
