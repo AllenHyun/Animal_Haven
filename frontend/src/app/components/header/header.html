@@ -22,10 +22,19 @@
 
   @if (router.url !== '/sign-up' && router.url !== '/login') {
     <section class="section-header">
-      <button routerLink="" class="button-header">Home</button>
-      <button routerLink="/search" class="button-header">Adopt/foster</button>
-      <button routerLink="/booking" class="button-header">Booking</button>
-      <button class="button-header">Contact</button>
+      <input type="checkbox" id="menu-toggle" class="menu-checkbox" />
+
+      <label for="menu-toggle" class="meatball">
+        <span></span>
+        <span></span>
+        <span></span>
+      </label>
+
+      <div class="nav-links">
+        <button routerLink="" class="button-header">Home</button>
+        <button routerLink="/search" class="button-header">Adopt/foster</button>
+        <button routerLink="/booking" class="button-header">Booking</button>
+      </div>
 
       @if (isLoggedIn$ | async) {
         <div class="profile-menu-container">

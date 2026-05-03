@@ -1,25 +1,24 @@
-
-header{
-  background-color:#67C2D2;
-  width:100%;
-  height:86px;
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  padding: 0 40px;
+header {
+  background-color: #67c2d2;
+  width: 100%;
+  height: 86px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 4vw;
   box-sizing: border-box;
 }
-h1{
-  color:#3393A4;
+h1 {
+  color: #136877;
   font-family: 'Italiana', serif;
 }
-span{
+span {
   font-family: 'Josefin Sans', sans-serif;
 }
-input{
-  width:82%;
-  border-color:transparent;
-  margin-bottom:2%;
+input {
+  width: 82%;
+  border-color: transparent;
+  margin-bottom: 2%;
 }
 input:focus {
   outline: none;
@@ -29,66 +28,120 @@ input:focus {
   cursor: pointer;
   flex-shrink: 3;
 }
-.button-searcher{
-  background-color:transparent;
-  border-color:transparent;
-  border-radius:100%;
-  margin-left:2%;
-  margin-right:2%;
+.button-searcher {
+  background-color: transparent;
+  border-color: transparent;
+  border-radius: 100%;
+  margin-left: 2%;
+  margin-right: 2%;
   align-items: center;
   padding-top: 1%;
 }
 
-#sign-up-button{
-  width:88px;
-  height:30px;
-  background-color:white;
-  border-radius:25px;
-
+#sign-up-button {
+  width: 88px;
+  height: 30px;
+  background-color: white;
+  border-radius: 25px;
 }
-#searchanimals{
-  background-color:white;
-  border-radius:25px;
-  min-width:350px;
-  height:35px;
-  display:flex;
-  align-items:center;
-  gap:0;
+#searchanimals {
+  background-color: white;
+  border-radius: 25px;
+  min-width: 250px;
+  height: 35px;
+  display: flex;
+  align-items: center;
+  gap: 0;
+  flex-grow: 2;
 }
 
 #searchanimals input {
-  margin-top: auto;
+  margin: auto;
 }
 
-.section-header{
-  display:flex;
-  justify-content:flex-start;
-  align-items:center;
-  padding-right: 20px;
+.section-header {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  padding-right: 40px;
   gap: 30px;
 }
 
 header section:last-child {
   justify-content: flex-end;
+  padding-right: 0;
 }
 
-.button-header{
-  background-color:transparent;
-  border-color:transparent;
+.menu-checkbox {
+  display: none;
+}
+
+.meatball {
+  display: none;
+  cursor: pointer;
+  flex-direction: row;
+  gap: 5px;
+}
+
+.meatball span {
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background-color: #136877;
+  z-index: 10;
+}
+
+.nav-links {
+  display: flex;
+  flex-direction: row;
+  flex-grow: 1;
+  justify-content: space-between;
+  gap: 30px;
+}
+
+@media screen and (max-width: 960px) {
+  .meatball {
+    display: flex;
+  }
+
+  .nav-links {
+    display: none;
+    position: absolute;
+    top: 86px;
+    right: 30px;
+    background: hsl(189, 54%, 61%);
+    width: 20%;
+    flex-direction: column;
+    justify-content: space-around;
+    text-align: center;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+    z-index: 100;
+    padding: 20px 0;
+    gap: 20px;
+  }
+
+  .menu-checkbox:checked ~ .nav-links {
+    display: flex;
+  }
+}
+
+.button-header {
+  background-color: transparent;
+  border-color: transparent;
   font-family: 'Josefin Sans', sans-serif;
-  color:#3393A4;
-  font-size:medium;
-  height:40px;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  cursor:pointer;
+  color: #136877;
+  font-size: large;
+  min-height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
 }
 
 .profile-icon {
   cursor: pointer;
   height: auto;
-  width: auto;  
+  width: auto;
   max-width: 30px;
   object-fit: contain;
 }
@@ -104,13 +157,13 @@ header section:last-child {
   display: none;
   position: absolute;
   top: 100%;
-  right: 0;
+  right: -10;
   margin-top: 8px;
   padding: 8px 16px;
   background-color: #fff;
   border: 1px solid #ddd;
   border-radius: 15px;
-  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   cursor: pointer;
   white-space: nowrap;
   z-index: 100;
@@ -129,7 +182,7 @@ header section:last-child {
 /* Show the button when hovering over the container */
 .profile-menu-container:hover .logout-button {
   display: block;
-  border-radius: 10px;
+  border-radius: 15px;
 }
 
 /* Optional hover state for the button itself */

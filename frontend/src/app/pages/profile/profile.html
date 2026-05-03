@@ -71,8 +71,8 @@
         <span class="material-symbols-outlined arrow">arrow_circle_left</span>
 
         <div class="animal-grid">
-          @for (adopted of user.adoptedPets; track adopted.id) {
-            <app-card [data]="adopted" (viewDetails)="selectedPet = $event"></app-card>
+          @for (foster of user.fosteredPets; track foster.id) {
+            <app-card [data]="foster" (viewDetails)="selectedPet = $event"></app-card>
           } @empty {
             <p class="empty-section">You haven't fostered any animals yet</p>
           }

@@ -1,11 +1,10 @@
 import { ChangeDetectorRef, Component, inject, OnInit } from '@angular/core';
 import { UserService, UserProfile } from '../../services/user.service';
 import { Card } from '../../components/card/card';
-import { PetProfile } from '../../components/petProfle/petProfile';
 
 @Component({
   selector: 'app-profile',
-  imports: [Card, PetProfile],
+  imports: [Card],
   templateUrl: './profile.html',
   styleUrl: './profile.css',
 })
