@@ -32,6 +32,23 @@
           know you better. A good "About me" section is a sign of transparency and can project more
           trust, which is essential in the starting stages of adopting or fostering a new pet.
         </p>
+        <div id="edit-button">
+          <span class="material-symbols-outlined edit" (click)="editDescription = true">edit</span>
+        </div>
+
+        @if (editDescription) {
+          <div id="description-overlay">
+            <form action="">
+              <div class="input-description-container">
+                <input type="text" class="description" placeholder="Describe yourself..." />
+                <div class="button-row">
+                  <button class="close-description" (click)="editDescription = false">Close</button>
+                  <input type="submit" class="submit-description" value="Save" />
+                </div>
+              </div>
+            </form>
+          </div>
+        }
       } @else {
         <p class="about-text">
           {{ user.description }}

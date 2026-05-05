@@ -1,6 +1,7 @@
 import { ChangeDetectorRef, Component, inject, OnInit } from '@angular/core';
 import { UserService, UserProfile } from '../../services/user.service';
 import { Card } from '../../components/card/card';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-profile',
@@ -13,6 +14,13 @@ export class Profile implements OnInit {
 
   private userService = inject(UserService);
   private cdr = inject(ChangeDetectorRef);
+  private fb = inject(FormBuilder);
+
+  editDescription: boolean = false;
+
+  descriptionForm: FormGroup = this.fb.group({
+    userDescription: ['', [Validators.required, Validators.minLength(2)]],
+  });
 
   ngOnInit(): void {
     this.userService.getProfile().subscribe({
@@ -24,5 +32,6 @@ export class Profile implements OnInit {
     });
   }
 
+  saveDescription() {}
   selectedPet: any = null;
 }

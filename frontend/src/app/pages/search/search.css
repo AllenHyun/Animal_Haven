@@ -71,7 +71,7 @@ h1 {
 }
 
 app-card {
-  max-width: 20%;
+  width: 20%;
 }
 
 #details-overlay {
