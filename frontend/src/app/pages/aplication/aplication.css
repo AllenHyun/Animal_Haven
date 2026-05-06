@@ -1,0 +1,130 @@
+.page-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  padding: 50px 0;
+  min-height: calc(100vh - 86px - 80px);
+  box-sizing: border-box;
+}
+
+.aplication-layout {
+  background-color: #DAEDF1;
+  border-radius: 30px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+  display: flex;
+  flex-direction: column;
+  width: 70%;
+  max-width: 800px;
+  padding: 40px;
+  margin: 0 auto;
+}
+
+.main-title {
+  font-family: 'Josefin Sans', sans-serif;
+  color: #5FB6CC;
+  font-weight: 500;
+  font-size: 32px;
+  margin-bottom: 40px;
+  text-align: center;
+}
+
+.aplication-content {
+  display: flex;
+  justify-content: space-between;
+  gap: 60px;
+}
+
+.card-column {
+  flex: 1;
+}
+
+.input-group {
+  margin-bottom: 45px;
+}
+
+.input-group label {
+  font-family: 'Josefin Sans', sans-serif;
+  font-weight: 600;
+  font-size: 16px;
+  color: #000;
+  margin-bottom: 8px;
+  display: block;
+}
+
+.input-group input {
+  width: 100%;
+  padding: 10px 20px;
+  border: 1.5px solid #5FB6CC;
+  border-radius: 30px;
+  background-color: transparent;
+  font-family: 'Josefin Sans', sans-serif;
+  color: #5FB6CC;
+  outline: none;
+  box-sizing: border-box;
+}
+
+.name-row {
+  display: flex;
+  gap: 20px;
+}
+
+.application-notes {
+  width: 100%;
+  height: 120px;
+  padding: 15px 20px;
+  border: 1.5px solid #5FB6CC;
+  border-radius: 20px;
+  background-color: transparent;
+  font-family: 'Josefin Sans', sans-serif;
+  color: #5FB6CC;
+  outline: none;
+  box-sizing: border-box;
+  resize: none;
+}
+
+#shelter-selector {
+  width: 100%;
+  border-radius: 20px;
+  padding: 10px;
+  border: 2px solid #5FB6CC;
+  background-color: #8EC5D1;
+  font-family: 'Josefin Sans', sans-serif;
+  color: white;
+  outline: none;
+}
+
+.create-button {
+  width: 40%;
+  padding: 12px 0;
+  border-radius: 30px;
+  border: none;
+  background-color: #5FB6CC;
+  color: white;
+  font-family: 'Josefin Sans', sans-serif;
+  font-size: 18px;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  cursor: pointer;
+  display: block;
+  margin: 10px auto;
+  transition: background-color 0.3s ease;
+}
+
+.create-button:hover {
+  background-color: #4DA3B8;
+}
+
+@media (max-width: 768px) {
+  .aplication-content {
+    flex-direction: column;
+    gap: 20px;
+  }
+  .aplication-layout {
+    width: 90%;
+  }
+  .create-button {
+    width: 100%;
+  }
+}

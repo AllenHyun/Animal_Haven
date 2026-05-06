@@ -5,6 +5,8 @@ import {Home} from './pages/home/home';
 import {Login} from './pages/login/login';
 import {Booking} from './pages/booking/booking';
 import {Profile} from './pages/profile/profile';
+import {Dashboard} from './pages/dashboard/dashboard';
+import {Aplication} from './pages/aplication/aplication';
 export const routes: Routes = [
   {path: '',component:Home},
   {path: 'sign-up', component: Register},
@@ -12,4 +14,6 @@ export const routes: Routes = [
   {path: 'login', component: Login},
   {path: 'booking', component: Booking},
   {path: 'profile', component: Profile},
+  {path: 'dashboard', component: Dashboard},
+  {path: 'aplication', component: Aplication},
 ];

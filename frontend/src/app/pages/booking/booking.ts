@@ -47,7 +47,6 @@ export class Booking implements OnInit {
   ngOnInit(): void {
     this.shelters$ = this.bookingService.getShelters();
 
-    // 🔥 detectar cambios de fecha
     this.bookingForm.get('date')?.valueChanges.subscribe(() => {
       this.tryLoadTimeFrames();
     });
@@ -56,7 +55,7 @@ export class Booking implements OnInit {
   // =========================
   // CARGA SEGURA HORARIOS
   // =========================
-  
+
   tryLoadTimeFrames() {
     const date = this.bookingForm.get('date')?.value;
     const shelterId = Number(this.bookingForm.get('shelterId')?.value);
