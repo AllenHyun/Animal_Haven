@@ -20,7 +20,7 @@ h3 {
 ul {
     margin: 10px 10px 10px 30px;
 }
- 
+
 p {
     margin: 10px;
     word-wrap: normal;
@@ -55,4 +55,27 @@ img {
     height: 100%;
     padding: 20px;
     max-width: 70%;
+}
+
+.apply-button {
+  width: 100%;
+  max-width: 300px;
+  padding: 12px 0;
+  border-radius: 30px;
+  border: none;
+  background-color: #5FB6CC;
+  color: white;
+  font-family: 'Josefin Sans', sans-serif;
+  font-size: 16px;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  cursor: pointer;
+  display: block;
+  margin: 40px auto 0 auto;
+  transition: background-color 0.3s ease;
+}
+
+.apply-button:hover {
+  background-color: #4DA3B8;
 }

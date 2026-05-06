@@ -1,4 +1,5 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'pet-profile',
@@ -9,4 +10,12 @@ import { Component, EventEmitter, Input, Output } from '@angular/core';
 export class PetProfile {
   @Input() pet: any;
   @Output() close = new EventEmitter<void>();
+
+  constructor(private router: Router) {
+  }
+
+  goToApplication() {
+    this.close.emit();
+    this.router.navigate(['/aplication']);
+  }
 }
