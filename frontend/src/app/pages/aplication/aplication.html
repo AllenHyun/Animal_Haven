@@ -1,69 +1,54 @@
 <div class="page-container">
-
   <div class="aplication-layout">
-
     <h1 class="main-title">Application Form</h1>
 
+    <div class="selected-pet-details">
+      <img [src]="profileImg" alt="Selected Pet Profile Image" />
+      <p>{{ petName }}</p>
+    </div>
+
     <form [formGroup]="applicationForm" (submit)="submitApplication()">
-
       <div class="aplication-content">
-
         <div class="card-column">
-
           <div class="input-group">
-
             <label>Name</label>
 
             <div class="name-row">
-
               <input formControlName="firstName" type="text" placeholder="First Name" />
               <input formControlName="lastName" type="text" placeholder="Last Name" />
-
             </div>
-
           </div>
 
           <div class="input-group">
-
             <label>Full Address</label>
 
             <input formControlName="address" type="text" placeholder="Street, City, Postcode" />
-
           </div>
-
         </div>
 
         <div class="card-column">
-
           <div class="input-group">
-
             <label>Application Type</label>
 
             <select formControlName="type" id="shelter-selector">
-
               <option value="foster">Foster</option>
               <option value="adopted">Adopted</option>
-
             </select>
-
           </div>
 
           <div class="input-group">
-
             <label>Notes</label>
 
-            <textarea formControlName="notes" class="application-notes" placeholder="Tell us more about your home..."></textarea>
-
+            <textarea
+              formControlName="notes"
+              class="application-notes"
+              placeholder="Tell us more about your home..."
+            ></textarea>
           </div>
-
         </div>
-
       </div>
 
       <button type="submit" class="create-button">SUBMIT APPLICATION</button>
-
     </form>
-
   </div>
-
 </div>

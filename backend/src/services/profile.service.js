@@ -15,4 +15,11 @@ const getUserById = async (id) => {
   });
 };
 
-module.exports = { getUserById };
+const updateDescription = async (id, description) => {
+  return await prisma.user.update({
+    where: { id: id },
+    data: { description: description },
+  });
+};
+
+module.exports = { getUserById, updateDescription };

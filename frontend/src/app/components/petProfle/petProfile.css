@@ -1,60 +1,61 @@
 body {
-    border-radius: 25px;
+  border-radius: 25px;
 }
 
 h1 {
-    width: 100%;
-    height: 10%;
-    text-align: center;
+  width: 100%;
+  height: 10%;
+  text-align: center;
 }
 
 h2 {
-    margin: 10px;
+  margin: 10px;
 }
 
 h3 {
-    margin: 10px;
-    margin-top: 30px;
+  margin: 10px;
+  margin-top: 30px;
 }
 
 ul {
-    margin: 10px 10px 10px 30px;
+  margin: 10px 10px 10px 30px;
 }
 
 p {
-    margin: 10px;
-    word-wrap: normal;
+  margin: 10px;
+  word-wrap: normal;
 }
 
 img {
-    margin: 0;
-    padding: 0;
-    height: 100%;
-    width: 100%;
-    object-fit: cover;
-    border-radius: 25px 0 0 25px;
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+  object-position: 50% top;
+  border-radius: 25px 0 0 25px;
 }
 
 #main-container {
-    height: 400px;
-    display: flex;
-    flex-wrap: nowrap;
-    padding: 0;
+  height: 400px;
+  display: flex;
+  flex-wrap: nowrap;
+  padding: 0;
 }
 
 #img-container {
-    border-radius: 25px;
-    left: 0;
-    margin: 0;
-    padding: 0;
-    height: 400px;
-    width: 300px;
+  border-radius: 25px;
+  left: 0;
+  margin: 0;
+  padding: 0;
+  height: 400px;
+  flex-grow: 1;
 }
 
 #data-container {
-    height: 100%;
-    padding: 20px;
-    max-width: 70%;
+  height: 100%;
+  padding: 20px;
+  max-width: 70%;
 }
 
 .apply-button {
@@ -63,7 +64,7 @@ img {
   padding: 12px 0;
   border-radius: 30px;
   border: none;
-  background-color: #5FB6CC;
+  background-color: #5fb6cc;
   color: white;
   font-family: 'Josefin Sans', sans-serif;
   font-size: 16px;
@@ -77,5 +78,5 @@ img {
 }
 
 .apply-button:hover {
-  background-color: #4DA3B8;
+  background-color: #4da3b8;
 }

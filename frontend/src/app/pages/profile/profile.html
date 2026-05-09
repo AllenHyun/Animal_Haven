@@ -1,5 +1,6 @@
 @if (user) {
   <div class="page-container">
+    <button (click)="goToDashboard()" class="dashboard-button">Go to Dashboard</button>
     <div class="profile-hero-card">
       <div class="hero-info">
         <div class="info-left">
@@ -35,24 +36,31 @@
         <div id="edit-button">
           <span class="material-symbols-outlined edit" (click)="editDescription = true">edit</span>
         </div>
-
-        @if (editDescription) {
-          <div id="description-overlay">
-            <form action="">
-              <div class="input-description-container">
-                <input type="text" class="description" placeholder="Describe yourself..." />
-                <div class="button-row">
-                  <button class="close-description" (click)="editDescription = false">Close</button>
-                  <input type="submit" class="submit-description" value="Save" />
-                </div>
-              </div>
-            </form>
-          </div>
-        }
       } @else {
         <p class="about-text">
           {{ user.description }}
         </p>
+        <div id="edit-button">
+          <span class="material-symbols-outlined edit" (click)="editDescription = true">edit</span>
+        </div>
+      }
+      @if (editDescription) {
+        <div id="description-overlay">
+          <form [formGroup]="descriptionForm" (submit)="saveDescription()">
+            <div class="input-description-container">
+              <textarea
+                [(ngModel)]="user.description"
+                formControlName="userDescription"
+                class="description"
+                placeholder="Describe yourself..."
+              ></textarea>
+              <div class="button-row">
+                <button class="close-description" (click)="editDescription = false">Close</button>
+                <input type="submit" class="submit-description" value="Save" />
+              </div>
+            </div>
+          </form>
+        </div>
       }
     </div>
 

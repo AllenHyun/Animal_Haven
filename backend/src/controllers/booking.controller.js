@@ -2,16 +2,17 @@ const bookingService = require("../services/booking.service.js");
 const getSuggestions = require("./search.controller.js");
 
 const saveBooking = async (req, res) => {
-  const { name, email, date, shelterId, timeFrame, userid } = req.body;
+  const { name, email, date, shelterId, timeFrame } = req.body;
 
   try {
+    const userId = req.user.userId;
     const result = await bookingService.saveBooking(
       name,
       email,
       date,
       shelterId,
       timeFrame,
-      userid,
+      userId,
     );
 
     res.status(201).json(result);
@@ -46,4 +47,19 @@ const getShelters = async (req, res) => {
   }
 };
 
-module.exports = { saveBooking, getTimeFrames, getShelters };
+const getUserBookings = async (req, res) => {
+  try {
+    const userId = req.user.userId;
+
+    if (!userId)
+      return res.status(404).json({ message: "Usuario no encontrado" });
+
+    const bookings = await bookingService.getUserBookings(userId);
+    res.status(200).json(bookings);
+  } catch (error) {
+    console.error("PRISMA ERROR:", error);
+    res.status(400).json({ error: "Failed to fetch user bookings" });
+  }
+};
+
+module.exports = { saveBooking, getTimeFrames, getShelters, getUserBookings };

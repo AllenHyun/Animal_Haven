@@ -1,77 +1,54 @@
 <main class="page-container">
-
   <header class="profile-hero-card">
+    <h1 class="profile-name">Personal Dashboard</h1>
 
-    <h1 class="profile-name">Management Dashboard</h1>
-
-    <p class="about-text">Overview of pending tasks and animal welfare requests.</p>
-
+    <p class="about-text">Overview of upcoming bookings and ongoing applications.</p>
   </header>
 
   <section class="dashboard-grid-container">
-
     <article class="profile-card">
-
       <header class="section-header start column">
-
-        <h2>Upcoming Bookings</h2>
+        <h2>Bookings</h2>
 
         <div class="line half-line"></div>
-
       </header>
 
       <ul class="list-container">
-
-        @for (booking of bookings; track $index) {
+        @for (booking of bookings$ | async; track booking.id) {
           <li class="dashboard-item">
-
             <span class="material-symbols-outlined edit">calendar_today</span>
 
             <div class="item-text">
-
-              <p class="main-text">{{ booking.date }} - {{ booking.time }}</p>
-              <p class="sub-text">User: {{ booking.user }} | Animal: {{ booking.animal }}</p>
-
+              <h2 class="name-text">{{ booking.location.name }}</h2>
+              <p class="main-text">{{ booking.date.slice(0, 10) }} - {{ booking.timeFrame }}</p>
+              <p class="sub-text">User: {{ booking.name }} | Email: {{ booking.email }}</p>
             </div>
-
           </li>
         }
       </ul>
-
     </article>
 
     <article class="profile-card">
-
       <header class="section-header start column">
-
-        <h2>Pending Applications</h2>
+        <h2>Applications</h2>
 
         <div class="line half-line"></div>
-
       </header>
 
       <ul class="list-container">
-
-        @for (app of applications; track $index) {
+        @for (app of applications$ | async; track app.id) {
           <li class="dashboard-item clickable">
-
             <span class="material-symbols-outlined edit">description</span>
 
             <div class="item-text">
-
               <p class="main-text">{{ app.name }} ({{ app.type }})</p>
               <p class="sub-text">Animal: {{ app.animal }} | Address: {{ app.location }}</p>
-
             </div>
 
             <span class="material-symbols-outlined arrow">arrow_circle_right</span>
-
           </li>
         }
       </ul>
-
     </article>
-
   </section>
-
 </main>

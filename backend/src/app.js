@@ -5,6 +5,7 @@ var searchRoutes = require("./routes/search.routes");
 var petRoutes = require("./routes/pets.routes");
 var bookingRoutes = require("./routes/booking.routes");
 var profileRoutes = require("./routes/profile.routes");
+var applicationRoutes = require("./routes/application.routes");
 const prisma = require("../src/config/prisma");
 
 var app = express(express.json());
@@ -27,6 +28,7 @@ app.use("/search", searchRoutes);
 app.use("/pets", petRoutes);
 app.use("/booking", bookingRoutes);
 app.use("/user/profile", profileRoutes);
+app.use("/application", applicationRoutes);
 
 app.use(function (err, req, res, next) {
   console.error("Backend Error:", err.message);

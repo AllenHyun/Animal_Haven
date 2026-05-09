@@ -89,7 +89,7 @@ app-card {
 pet-profile {
   background: white;
   border-radius: 25px;
-  max-width: 80%;
+  max-width: 75%;
   width: 90%;
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
   padding: 0;

@@ -8,8 +8,9 @@ import {
   FormGroup,
   FormsModule,
   ReactiveFormsModule,
-  Validators
+  Validators,
 } from '@angular/forms';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-booking',
@@ -19,10 +20,10 @@ import {
   styleUrl: './booking.css',
 })
 export class Booking implements OnInit {
-
   private fb = inject(FormBuilder);
   private bookingService = inject(BookingService);
   private cdr = inject(ChangeDetectorRef);
+  private router = inject(Router);
 
   shelters$!: Observable<any[]>;
   timeFrames$!: Observable<any[]>;
@@ -60,10 +61,10 @@ export class Booking implements OnInit {
     const date = this.bookingForm.get('date')?.value;
     const shelterId = Number(this.bookingForm.get('shelterId')?.value);
     console.log(date);
-    const timeframe ={
-        "date":date,
-        "id":shelterId,
-    }
+    const timeframe = {
+      date: date,
+      id: shelterId,
+    };
     if (!date || isNaN(shelterId)) {
       this.timeFrames$ = new Observable<any[]>();
       return;
@@ -126,12 +127,15 @@ export class Booking implements OnInit {
       email: data.email,
       date: new Date(data.date).toISOString(),
       shelterId: Number(data.shelterId),
-      timeFrame: data.timeFrame
+      timeFrame: data.timeFrame,
     };
 
     this.bookingService.saveBooking(sendobject).subscribe({
-      next: () => alert('¡Reserva realizada!'),
-      error: (err) => console.error('Error al guardar', err)
+      next: () => {
+        alert('¡Reserva realizada!');
+        this.router.navigate(['/dashboard']);
+      },
+      error: (err) => console.error('Error al guardar', err),
     });
   }
 }

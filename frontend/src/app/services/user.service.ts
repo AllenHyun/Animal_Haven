@@ -24,4 +24,8 @@ export class UserService {
   getProfile(): Observable<UserProfile> {
     return this.http.get<UserProfile>(`${this.apiUrl}/user/profile`);
   }
+
+  updateDescription(description: String): Observable<any> {
+    return this.http.post(`${this.apiUrl}/user/profile/edit`, description);
+  }
 }

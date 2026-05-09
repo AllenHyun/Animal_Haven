@@ -19,7 +19,7 @@ model User {
   email        String        @unique
   password     String
   postcode     Int
-  description  String?
+  description  String?       @db.Text
   bookings     Booking[]
   applications Application[]
   createdAt    DateTime      @default(now())

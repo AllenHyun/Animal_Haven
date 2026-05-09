@@ -89,4 +89,17 @@ const getShelters = async (shelterId) => {
   });
 };
 
-module.exports = { saveBooking, getTimeFrames, getShelters };
+const getUserBookings = async (userId) => {
+  return await prisma.booking.findMany({
+    where: { userId: userId },
+    include: {
+      location: {
+        select: {
+          name: true,
+        },
+      },
+    },
+  });
+};
+
+module.exports = { saveBooking, getTimeFrames, getShelters, getUserBookings };
