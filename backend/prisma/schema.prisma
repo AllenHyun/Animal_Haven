@@ -62,11 +62,19 @@ enum ApplicationStatus {
 }
 
 model Application {
-  id     Int               @id @default(autoincrement())
-  type   ApplicationType   @default(ADOPTION)
-  status ApplicationStatus @default(STARTED)
-  user   User?             @relation(fields: [userId], references: [id])
-  userId Int?
+  id        Int               @id @default(autoincrement())
+  type      ApplicationType   @default(ADOPTION)
+  status    ApplicationStatus @default(STARTED)
+  user      User?             @relation(fields: [userId], references: [id])
+  userId    Int?
+  firstName String
+  lastName  String
+  address   String
+  notes     String            @db.Text
+  pet       Pet               @relation(fields: [petId], references: [id])
+  petId     Int
+  location  Shelter           @relation(fields: [shelterId], references: [id])
+  shelterId Int               @default(1)
 }
 
 model Shelter {
@@ -77,6 +85,7 @@ model Shelter {
   pets           Pet[]
   bookings       Booking[]
   availableTimes AvailableTime[]
+  applications   Application[]
 }
 
 enum Gender {
@@ -90,14 +99,15 @@ enum Animal {
 }
 
 model Pet {
-  id          Int      @id @default(autoincrement())
-  name        String
-  breed       String?
-  age         Int
-  gender      Gender
-  animalType  Animal
-  profileImg  String
-  description String   @default("Description")
-  shelter     Shelter? @relation(fields: [shelterId], references: [id])
-  shelterId   Int?
+  id           Int           @id @default(autoincrement())
+  name         String
+  breed        String?
+  age          Int
+  gender       Gender
+  animalType   Animal
+  profileImg   String
+  description  String        @default("Description")
+  shelter      Shelter?      @relation(fields: [shelterId], references: [id])
+  shelterId    Int?
+  applications Application[]
 }

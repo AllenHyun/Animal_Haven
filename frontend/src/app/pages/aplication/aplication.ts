@@ -1,6 +1,7 @@
 import { Component, inject, OnInit } from '@angular/core';
 import { ReactiveFormsModule, FormGroup, FormControl } from '@angular/forms';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
+import { ApplicationService } from '../../services/application.service';
 
 @Component({
   selector: 'app-aplication',
@@ -22,7 +23,11 @@ export class Aplication implements OnInit {
     notes: new FormControl(''),
   });
 
-  constructor(private route: ActivatedRoute) {}
+  constructor(
+    private route: ActivatedRoute,
+    private router: Router,
+    private applicationService: ApplicationService,
+  ) {}
 
   ngOnInit(): void {
     this.petId = parseInt(<string>this.route.snapshot.queryParamMap.get('petId'));
@@ -34,5 +39,16 @@ export class Aplication implements OnInit {
 
   submitApplication() {
     console.log(this.applicationForm.value);
+    const payload = {
+      ...this.applicationForm.value,
+      petId: this.petId,
+    };
+    this.applicationService.saveApplication(payload).subscribe({
+      next: () => {
+        alert('Application for ' + this.petName + ' submitted!');
+        this.router.navigate(['/dashboard']);
+      },
+      error: (err) => console.error('Error al guardar', err),
+    });
   }
 }

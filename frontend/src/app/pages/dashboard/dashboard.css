@@ -113,6 +113,8 @@
 }
 
 .item-text {
+  display: flex;
+  flex-direction: column;
   flex-grow: 1;
   margin-left: 15px;
   text-align: left;
@@ -131,6 +133,17 @@
   color: #333;
   margin: 0;
   margin-bottom: 5px;
+}
+
+.type-badge {
+  font-family: 'Josefin Sans', sans-serif;
+  width: fit-content;
+  font-size: 12px;
+  padding: 5px;
+  margin-bottom: 5px;
+  border-radius: 12px;
+  color: white;
+  background-color: #5fb6cc;
 }
 
 .sub-text {

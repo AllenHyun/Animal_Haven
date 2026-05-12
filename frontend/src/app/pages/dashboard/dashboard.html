@@ -41,8 +41,14 @@
             <span class="material-symbols-outlined edit">description</span>
 
             <div class="item-text">
-              <p class="main-text">{{ app.name }} ({{ app.type }})</p>
-              <p class="sub-text">Animal: {{ app.animal }} | Address: {{ app.location }}</p>
+              <h2 class="name-text">{{ app.pet.name }}</h2>
+              <div class="type-badge">
+                <span>{{ app.type }}</span>
+              </div>
+              <p class="sub-text">
+                Registered to: {{ app.firstName + ' ' + app.lastName }} | Shelter:
+                {{ app.location.name }}
+              </p>
             </div>
 
             <span class="material-symbols-outlined arrow">arrow_circle_right</span>

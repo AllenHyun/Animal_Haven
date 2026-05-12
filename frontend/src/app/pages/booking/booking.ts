@@ -132,7 +132,7 @@ export class Booking implements OnInit {
 
     this.bookingService.saveBooking(sendobject).subscribe({
       next: () => {
-        alert('¡Reserva realizada!');
+        alert('Booking submitted!');
         this.router.navigate(['/dashboard']);
       },
       error: (err) => console.error('Error al guardar', err),
