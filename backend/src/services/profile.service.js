@@ -11,6 +11,16 @@ const getUserById = async (id) => {
       email: true,
       postcode: true,
       description: true,
+      applications: {
+        select: {
+          type: true,
+          pet: {
+            include: {
+              shelter: { select: { name: true } },
+            },
+          },
+        },
+      },
     },
   });
 };

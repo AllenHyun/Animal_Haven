@@ -18,7 +18,8 @@ const getUserApplications = async (req, res) => {
 const saveApplication = async (req, res) => {
   try {
     const userId = req.user.userId;
-    const { firstName, lastName, address, notes, petId, type } = req.body;
+    const { firstName, lastName, address, notes, petId, type, location } =
+      req.body;
 
     if (!userId)
       return res.status(404).json({ message: "Usuario no encontrado" });
@@ -30,6 +31,7 @@ const saveApplication = async (req, res) => {
       address,
       notes,
       petId,
+      location,
       type.toUpperCase(),
     );
     res.status(200).json(application);

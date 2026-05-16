@@ -3,6 +3,10 @@ import { inject, Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Pet } from './pet.service';
 
+interface Application {
+  type: string;
+  pet: Pet;
+}
 export interface UserProfile {
   id: number;
   firstName: string;
@@ -10,8 +14,7 @@ export interface UserProfile {
   email: string;
   postcode: string;
   description: string;
-  adoptedPets: Pet[];
-  fosteredPets: Pet[];
+  applications: Application[];
 }
 
 @Injectable({

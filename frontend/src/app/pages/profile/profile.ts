@@ -9,10 +9,12 @@ import {
   Validators,
 } from '@angular/forms';
 import { Router } from '@angular/router';
+import { Pet } from '../../services/pet.service';
+import { PetProfile } from '../../components/petProfle/petProfile';
 
 @Component({
   selector: 'app-profile',
-  imports: [Card, FormsModule, ReactiveFormsModule],
+  imports: [Card, PetProfile, FormsModule, ReactiveFormsModule],
   templateUrl: './profile.html',
   styleUrl: './profile.css',
 })
@@ -24,6 +26,9 @@ export class Profile implements OnInit {
   private fb = inject(FormBuilder);
   private router = inject(Router);
 
+  adoptions: Pet[] = [];
+  fosters: Pet[] = [];
+
   editDescription: boolean = false;
 
   descriptionForm: FormGroup = this.fb.group({
@@ -34,6 +39,14 @@ export class Profile implements OnInit {
     this.userService.getProfile().subscribe({
       next: (data) => {
         this.user = data;
+        for (let application of this.user.applications) {
+          if (application.type === 'ADOPTION') {
+            this.adoptions.push(application.pet);
+          } else {
+            this.fosters.push(application.pet);
+          }
+        }
+        console.log('Logged adoptions and fosters:', this.adoptions, this.fosters);
         this.cdr.detectChanges();
       },
       error: (error) => console.error('Error al cargar los datos de usuario:', error),

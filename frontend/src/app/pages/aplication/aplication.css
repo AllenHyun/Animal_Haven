@@ -34,6 +34,7 @@
   max-width: 50px;
   aspect-ratio: 1/1;
   clip-path: circle(50%);
+  object-fit: cover;
   object-position: center;
 }
 
@@ -82,9 +83,13 @@
   border-radius: 30px;
   background-color: transparent;
   font-family: 'Josefin Sans', sans-serif;
-  color: #5fb6cc;
+  color: #136883;
   outline: none;
   box-sizing: border-box;
+}
+
+.input-group textarea {
+  color: #136883;
 }
 
 .name-row {

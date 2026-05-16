@@ -16,7 +16,12 @@ export class PetProfile {
   goToApplication() {
     this.close.emit();
     this.router.navigate(['/aplication'], {
-      queryParams: { petId: this.pet.id, profileImg: this.pet.profileImg, petName: this.pet.name },
+      queryParams: {
+        petId: this.pet.id,
+        profileImg: this.pet.profileImg,
+        petName: this.pet.name,
+        location: this.pet.shelterId,
+      },
     });
   }
 }

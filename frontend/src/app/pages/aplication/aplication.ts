@@ -14,6 +14,7 @@ export class Aplication implements OnInit {
   petId: number | null = 0;
   petName: String | null = '';
   profileImg: String | null = '';
+  locationId: number | null = 0;
 
   applicationForm = new FormGroup({
     firstName: new FormControl(''),
@@ -33,6 +34,7 @@ export class Aplication implements OnInit {
     this.petId = parseInt(<string>this.route.snapshot.queryParamMap.get('petId'));
     this.petName = this.route.snapshot.queryParamMap.get('petName');
     this.profileImg = this.route.snapshot.queryParamMap.get('profileImg');
+    this.locationId = parseInt(<string>this.route.snapshot.queryParamMap.get('location'));
     console.log('Application for:', this.petName);
     console.log('Profile picture:', this.profileImg);
   }
@@ -42,6 +44,7 @@ export class Aplication implements OnInit {
     const payload = {
       ...this.applicationForm.value,
       petId: this.petId,
+      location: this.locationId,
     };
     this.applicationService.saveApplication(payload).subscribe({
       next: () => {

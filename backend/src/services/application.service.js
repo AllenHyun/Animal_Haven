@@ -21,6 +21,7 @@ const saveApplication = async (
   address,
   notes,
   petId,
+  shelterId,
   type,
 ) => {
   return await prisma.application.create({
@@ -31,6 +32,7 @@ const saveApplication = async (
       address,
       notes,
       petId,
+      shelterId,
       type,
     },
   });

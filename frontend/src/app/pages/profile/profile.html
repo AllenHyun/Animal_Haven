@@ -75,7 +75,7 @@
         <span class="material-symbols-outlined arrow">arrow_circle_left</span>
 
         <div class="animal-grid">
-          @for (adopted of user.adoptedPets; track adopted.id) {
+          @for (adopted of adoptions; track adopted) {
             <app-card [data]="adopted" (viewDetails)="selectedPet = $event"></app-card>
           } @empty {
             <p class="empty-section">You haven't adopted any animals yet</p>
@@ -96,7 +96,7 @@
         <span class="material-symbols-outlined arrow">arrow_circle_left</span>
 
         <div class="animal-grid">
-          @for (foster of user.fosteredPets; track foster.id) {
+          @for (foster of fosters; track foster) {
             <app-card [data]="foster" (viewDetails)="selectedPet = $event"></app-card>
           } @empty {
             <p class="empty-section">You haven't fostered any animals yet</p>
@@ -107,4 +107,9 @@
       </div>
     </div>
   </div>
+  @if (selectedPet) {
+    <div id="details-overlay" (click)="selectedPet = null">
+      <pet-profile [pet]="selectedPet" (close)="selectedPet = null"></pet-profile>
+    </div>
+  }
 }
