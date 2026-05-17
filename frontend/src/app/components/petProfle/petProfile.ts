@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { Router } from '@angular/router';
 
 @Component({
@@ -7,11 +7,15 @@ import { Router } from '@angular/router';
   templateUrl: './petProfile.html',
   styleUrl: './petProfile.css',
 })
-export class PetProfile {
+export class PetProfile implements OnInit {
   @Input() pet: any;
   @Output() close = new EventEmitter<void>();
 
   constructor(private router: Router) {}
+
+  ngOnInit(): void {
+    console.log('This is the pet:', this.pet);
+  }
 
   goToApplication() {
     this.close.emit();
@@ -20,7 +24,7 @@ export class PetProfile {
         petId: this.pet.id,
         profileImg: this.pet.profileImg,
         petName: this.pet.name,
-        location: this.pet.shelterId,
+        shelter: this.pet.shelterId,
       },
     });
   }

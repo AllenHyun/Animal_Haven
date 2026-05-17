@@ -135,7 +135,14 @@ export class Booking implements OnInit {
         alert('Booking submitted!');
         this.router.navigate(['/dashboard']);
       },
-      error: (err) => console.error('Error al guardar', err),
+      error: (err) => {
+        if (!localStorage.getItem('token')) {
+          alert('You are not logged in, only logged in users can book an appointment!');
+        } else {
+          alert('There was a problem with your booking, please try later.');
+        }
+        console.error('Error al guardar', err);
+      },
     });
   }
 }

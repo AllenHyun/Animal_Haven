@@ -68,7 +68,6 @@ input:focus {
 header section:first-child {
   justify-content: flex-start;
   padding-right: 40px;
-  flex-grow: 0.3;
 }
 
 header section:last-child {

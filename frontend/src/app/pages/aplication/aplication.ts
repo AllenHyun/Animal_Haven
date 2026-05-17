@@ -34,7 +34,7 @@ export class Aplication implements OnInit {
     this.petId = parseInt(<string>this.route.snapshot.queryParamMap.get('petId'));
     this.petName = this.route.snapshot.queryParamMap.get('petName');
     this.profileImg = this.route.snapshot.queryParamMap.get('profileImg');
-    this.locationId = parseInt(<string>this.route.snapshot.queryParamMap.get('location'));
+    this.locationId = parseInt(<string>this.route.snapshot.queryParamMap.get('shelter'));
     console.log('Application for:', this.petName);
     console.log('Profile picture:', this.profileImg);
   }

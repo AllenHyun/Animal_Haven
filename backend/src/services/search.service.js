@@ -26,6 +26,9 @@ const basicSearch = async (searchSring) => {
         contains: searchSring,
       },
     },
+    include: {
+      shelter: true,
+    },
   });
 };
 
